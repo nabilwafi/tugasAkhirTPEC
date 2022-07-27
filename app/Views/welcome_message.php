@@ -256,7 +256,7 @@
 
             <h1>Welcome to CodeIgniter <?= CodeIgniter\CodeIgniter::CI_VERSION ?></h1>
 
-            <h2>Faris Fadhillah ganteng</h2>
+            <h2>Faris Fadhillah ganteng bangeeeetttt</h2>
 
         </div>
 
