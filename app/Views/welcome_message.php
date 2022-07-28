@@ -256,12 +256,8 @@
 
             <h1>Welcome to CodeIgniter <?= CodeIgniter\CodeIgniter::CI_VERSION ?></h1>
 
-<<<<<<< HEAD
             <h2>Faris Fadhillah ganteng</h2>
             <h3>Nabil Nabil Nabil</h3>
-=======
-            <h2>Faris Fadhillah ganteng bangeeeetttt</h2>
->>>>>>> refs/remotes/origin/master
 
         </div>
 
