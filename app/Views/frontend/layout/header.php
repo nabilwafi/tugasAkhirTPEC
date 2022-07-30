@@ -18,19 +18,25 @@
         <li class="nav-item">
           <a class="nav-link" href="/contact">Contact</a>
         </li>
+        <li class="nav-item">
+          <a class="nav-link btn btn-info text-center w-full mb-2 nav-mobile" href="/login">Login</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link btn btn-info text-center w-full nav-mobile" href="/register">Register</a>
+        </li>
       </ul>
     </div>
 
-    <div class="d-inline-flex justify-content-between align-items-center nav-section-buying">
-      <button class="nav-link nav-user">
+    <div class="position-relative nav-users">
+      <button class="nav-link nav-user position-relative">
         <i class='bx bxs-user nav-buying' ></i>
       </button>
-    </div>
-
-    <div class="card position-absolute nav-login" style="width: 18rem;">
-      <div class="card-body">
-        <a href="/login" class="btn btn-info w-100 mb-3">Login</a>
-        <a href="/register" class="btn btn-info w-100">Register</a>
+  
+      <div class="card position-absolute nav-login">
+        <div class="card-body">
+          <a href="/login" class="btn btn-info w-100 mb-3">Login</a>
+          <a href="/register" class="btn btn-info w-100">Register</a>
+        </div>
       </div>
     </div>
   </div>

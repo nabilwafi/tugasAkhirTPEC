@@ -38,5 +38,5 @@
 <?= $this->endSection() ?>
 
 <?= $this->section('head') ?>
-<title>Contact</title>
+<title>Sayang Mamah Service - Contact</title>
 <?= $this->endSection() ?>

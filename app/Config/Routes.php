@@ -38,6 +38,8 @@ $routes->set404Override();
 $routes->get('/', 'Home::index');
 $routes->get('/about', 'Home::about');
 $routes->get('/contact', 'Home::contact');
+$routes->get('/login', 'Home::login');
+$routes->get('/register', 'Home::register');
 $routes->get('/backend', 'Backend::index');
 
 /*

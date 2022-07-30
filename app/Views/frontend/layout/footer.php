@@ -1,7 +1,7 @@
 <div class="footer-section section-layout">
   <div class="container">
     <div class="row justify-content-center w-100">
-      <div class="col-3">
+      <div class="col-lg-3 list-footer">
         <ul>
           <li class="h5 text-uppercase mb-3">Quick Lines</li>
           <li class="mb-2"><a href="/" class="nav-link">Home</a></li>
@@ -12,7 +12,7 @@
         </ul>
       </div>
 
-      <div class="col-3">
+      <div class="col-lg-3 list-footer">
         <ul>
           <li class="h5 text-uppercase mb-3">Extra Links</li>
           <li class="mb-2"><a href="/login" class="nav-link">Login</a></li>
@@ -22,7 +22,7 @@
         </ul>
       </div>
 
-      <div class="col-4">
+      <div class="col-lg-4 list-footer">
         <ul>
           <li class="h5 text-uppercase mb-3">Contact Information</li>
           <li class="mb-3 d-flex align-items-center"><i class='bx bxs-phone footer-icon'></i> <span
@@ -32,7 +32,7 @@
         </ul>
       </div>
 
-      <div class="col-2">
+      <div class="col-lg-2">
         <ul>
           <li class="h5 text-uppercase mb-3">Follow Us</li>
           <li class="mb-3 d-flex align-items-center"><i class='bx bxl-facebook footer-icon' ></i> <span

@@ -6,25 +6,27 @@ class Home extends BaseController
 {
     public function index()
     {
-        $data = [
-            'title' => 'Home'
-        ];
-        return view('frontend/index', $data);
+        return view('frontend/index');
     }
     public function about()
     {
-        $data = [
-            'title' => 'About'
-        ];
-        return view('frontend/about', $data);
+        return view('frontend/about');
     }
 
     public function contact()
     {
-        $data = [
-            'title' => 'Contact'
-        ];
+        return view('frontend/contact');
+    }
 
-        return view('frontend/contact', $data);
+    // LOGIN
+    public function login()
+    {
+        return view('form/login.php');
+    }
+
+    // Register
+    public function register()
+    {
+        return view('form/register.php');
     }
 }

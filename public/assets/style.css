@@ -1,3 +1,9 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
 html {
   scroll-behavior: smooth;
 }
@@ -11,10 +17,17 @@ ul {
   padding: 5rem 0;
 }
 
+.btn-back {
+  margin: 15px 0;
+  width: 100%;
+  border: 1px solid black;
+}
+
 .about-section,
 .home-section,
 .review-section,
-.contact-page {
+.contact-page,
+.login-page {
   background-color: #fefbf6;
 }
 /* End of Reusable */
@@ -36,6 +49,10 @@ ul {
   height: 15px;
 }
 
+.nav-users {
+  display: none;
+}
+
 .nav-user {
   outline: none;
   border: none;
@@ -43,12 +60,13 @@ ul {
 }
 
 .nav-login {
+  display: hidden;
   top: 3rem;
   right: 15%;
-  display: hidden;
   opacity: 0;
   transition: opacity 300ms;
   z-index: 5;
+  width: 18rem;
 }
 
 .reveal {
@@ -91,7 +109,6 @@ ul {
 .jumbotron-information {
   color: white;
   text-align: center;
-  width: 30%;
 }
 /* End of Jumbotron */
 
@@ -103,6 +120,7 @@ ul {
 .home-products {
   margin: 3rem 0;
   cursor: pointer;
+  justify-content: center;
 }
 
 .home-product {
@@ -112,6 +130,8 @@ ul {
   justify-content: center;
   overflow: hidden;
   padding: 0;
+  margin: 0.5rem 0;
+  width: 100%;
 }
 
 .home-product-img {
@@ -120,21 +140,22 @@ ul {
 
 .home-product-img::before {
   content: "";
+  width: 100%;
+  height: 100%;
   position: absolute;
   left: -100%;
-  right: 0;
   top: 0;
-  bottom: 0;
   background-color: rgba(0, 0, 0, 0.5);
-  transform: translateX(-100%);
   filter: blur(10px);
   -webkit-filter: blur(10px);
-  transition: transform 500ms;
+  transition: left 500ms;
 }
 
 .home-information {
-  transform: translateX(-150%);
-  transition: transform 500ms;
+  left: -100%;
+  width: 100%;
+  flex-direction: column;
+  transition: left 500ms;
 }
 
 .home-information-title {
@@ -143,23 +164,33 @@ ul {
 
 .home-product:hover .home-product-img::before,
 .home-product:hover .home-information {
-  transform: translateX(0);
+  left: 0;
 }
 
 /* End of Home */
 
 /* About */
-.about-img {
-  width: 500px;
+.about-content {
+  flex-direction: column;
+}
+
+.about-img,
+.about-img-page {
   overflow: hidden;
 }
 
+.about-card {
+  text-align: center;
+}
+
 .about-information {
-  margin-left: -4rem;
+  margin-top: 1rem;
+  border: none;
+  background-color: transparent;
 }
 
 .about-information-title {
-  font-size: 2.5rem;
+  font-size: 1.5rem;
   text-transform: uppercase;
 }
 
@@ -174,10 +205,6 @@ ul {
   text-align: center;
 }
 
-.contact-information {
-  width: 900px;
-}
-
 .contact-title {
   margin-bottom: 1rem;
 }
@@ -187,17 +214,23 @@ ul {
 .footer-icon {
   font-size: 1.5rem;
 }
+
+.list-footer {
+  margin-bottom: 1.5rem;
+}
 /* End of Footer */
 
 /* Sponsored */
 .sponsored-content {
   margin: 5rem 0;
+  justify-content: center;
 }
 
 .sponsored-img {
   width: 200px;
   cursor: pointer;
   opacity: 0.5;
+  margin-bottom: 5rem;
   transition: opacity 500ms;
 }
 
@@ -207,9 +240,13 @@ ul {
 /* End of Sponsored */
 
 /* About Page */
+.about-page-content {
+  flex-direction: column;
+  text-align: center;
+}
+
 .about-page-information {
-  width: 500px;
-  margin-left: 3rem;
+  margin-top: 1.5rem;
 }
 
 .about-page-title {
@@ -218,20 +255,180 @@ ul {
 }
 
 .about-page-description {
-  text-align: justify;
+  text-align: center;
 }
 /* End of About Page */
 
 /* Contact-page */
-.contact-page-form {
-  width: 500px;
-}
-
 .contact-page-title {
   font-size: 2.5rem;
+}
+
+.contact-page-form {
+  width: 100%;
 }
 
 .contact-page-textarea {
   height: 10rem;
 }
 /* End of Contact-page */
+
+/* Login Page */
+.login-content {
+  min-height: 100vh;
+  height: 100%;
+}
+
+.login-information {
+  padding-bottom: 0;
+}
+
+.login-card {
+  width: 100%;
+}
+
+.login-card,
+.form-input {
+  border-color: black;
+}
+
+.login-title {
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.form-btn {
+  width: 100%;
+}
+/* End of Login Page */
+
+/* Media Queries */
+@media screen and (min-width: 992px) {
+  .btn-back {
+    width: initial;
+  }
+
+  /* Nav */
+  .nav-mobile {
+    display: none;
+  }
+
+  .nav-users {
+    display: block;
+  }
+
+  .nav-user {
+    display: block;
+  }
+  /* End of Nav */
+
+  /* Services */
+  .home-products {
+    justify-content: space-between;
+  }
+
+  .home-product {
+    margin: 0;
+    width: 18rem;
+  }
+  /* End of Services */
+
+  /* About Us */
+  .about-content {
+    flex-direction: row;
+  }
+
+  .about-information {
+    border: 1px solid rgba(0, 0, 0, 0.175);
+    width: 30rem;
+    margin-left: -4rem;
+    margin-top: 0;
+    background-color: white;
+  }
+
+  .about-card {
+    text-align: initial;
+  }
+
+  .about-img {
+    width: 500px;
+  }
+
+  .about-information-title {
+    font-size: 2rem;
+  }
+  /* End of About Us */
+
+  /* Contact Section */
+  .contact-information {
+    width: 900px;
+  }
+  /* End of Contact Section */
+
+  /* Footer */
+  .list-footer {
+    margin-bottom: 0;
+  }
+  /* End of Footer */
+
+  /* Contact Page */
+  .contact-page-form {
+    width: 900px;
+  }
+  /* End of Contact Page */
+
+  /* Login Page */
+  .login-card {
+    width: initial;
+  }
+
+  .form-area {
+    width: 500px;
+  }
+
+  .form-btn {
+    width: 30%;
+    padding: 10px 25px;
+  }
+  /* End of Login Page */
+}
+
+@media screen and (min-width: 1200px) {
+  /* Jumbotron */
+  .jumbotron-information {
+    width: 30%;
+  }
+  /* End of Jumbotron */
+
+  /* Home Product */
+  .home-product {
+    width: 25rem;
+  }
+  /* End of Home Product */
+
+  /* About Page */
+  .about-page-content {
+    flex-direction: row;
+  }
+
+  .about-page-information {
+    margin-top: 0;
+    margin-left: 3rem;
+  }
+
+  .about-page-information,
+  .about-page-description {
+    text-align: justify;
+  }
+
+  .sponsored-content {
+    justify-content: space-between;
+  }
+
+  .sponsored-img {
+    margin-bottom: 0;
+  }
+  /* End of About Page */
+}
+
+/* End of Media Queries */

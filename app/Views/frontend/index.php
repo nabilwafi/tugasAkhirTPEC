@@ -5,8 +5,8 @@
         <div class="container">
             <h1 class="text-center home-title">SERVICES</h1>
 
-            <div class="home-products row justify-content-between w-100">
-                <div class="card home-product col-3" style="width: 25rem;">
+            <div class="row w-100 home-products">
+                <div class="card home-product col-3">
                     <div class="home-product-img">
                         <img class="w-100 home-img" src="/assets/images/about-img-umbr.jpg" alt="">
                     </div>
@@ -17,7 +17,7 @@
                     </div>
                 </div>
 
-                <div class="card home-product col-3" style="width: 25rem;">
+                <div class="card home-product col-3">
                     <div class="home-product-img">
                         <img class="w-100 home-img" src="/assets/images/about-img-umbr.jpg" alt="">
                     </div>
@@ -28,7 +28,7 @@
                     </div>
                 </div>
 
-                <div class="card home-product col-3" style="width: 25rem;">
+                <div class="card home-product col-3">
                     <div class="home-product-img">
                         <img class="w-100 home-img" src="/assets/images/about-img-umbr.jpg" alt="">
                     </div>
@@ -44,13 +44,13 @@
 
     <div class="about-section section-layout">
         <div class="container">
-            <div class="d-flex justify-content-center align-items-center">
+            <div class="d-flex justify-content-center align-items-center about-content">
                 <div class="about-img rounded">
                     <img src="/assets/images/about-img-umbr.jpg" alt="" class="w-100">
                 </div>
 
-                <div class="card about-information" style="width: 30rem;">
-                    <div class="card-body">
+                <div class="card about-information">
+                    <div class="card-body about-card">
                         <h5 class="card-title about-information-title">About Us</h5>
                         <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
                             card's content.</p>
@@ -73,15 +73,11 @@
 
 
 <?= $this->section('jumbotron') ?>
-    <h1>Lorem ipsum dolor sit amet consectetur adipisicing elit.</h1>
-
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat quae iste molestiae numquam. Natus, praesentium
-        repellat, in quibusdam molestias amet dignissimos modi dolores magni placeat exercitationem consectetur dolorum
-        tempora temporibus, vitae ratione?</p>
-
+    <h1>Helping you to fix your device</h1>
+    <p>together to help you repair your device for a more enjoyable experience</p>
     <a href="#services" class="btn btn-info">Discover More</a>
 <?= $this->endSection() ?>
 
 <?= $this->section('head') ?>
-    <title>Home</title>
+    <title>Sayang Mamah Service - Home</title>
 <?= $this->endSection(); ?>

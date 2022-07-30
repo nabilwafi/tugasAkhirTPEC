@@ -3,8 +3,8 @@
 <?= $this->section('content'); ?>
 <div class="about-section section-layout">
     <div class="container">
-        <div class="d-flex justify-content-center align-items-center">
-            <div class="about-img rounded">
+        <div class="d-flex justify-content-center align-items-center about-page-content">
+            <div class="about-img-page rounded">
                 <img src="/assets/images/about-img-umbr.jpg" alt="" class="w-100">
             </div>
 
@@ -20,7 +20,7 @@
     <div class="container">
         <h1 class="text-uppercase text-center">Sponsored</h1>
     
-        <div class="row sponsored-content justify-content-between align-items-center review-content">
+        <div class="row align-items-center sponsored-content">
             <div class="col-2 sponsored-img">
                 <img class="w-100" src="/assets/images/logo_gojek.png" alt="">
             </div>
@@ -55,5 +55,5 @@
 <?= $this->endSection() ?>
 
 <?= $this->section('head') ?>
-<title>About</title>
+<title>Sayang Mamah Service - About</title>
 <?= $this->endSection() ?>
