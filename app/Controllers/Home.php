@@ -17,16 +17,4 @@ class Home extends BaseController
     {
         return view('frontend/contact');
     }
-
-    // LOGIN
-    public function login()
-    {
-        return view('form/login.php');
-    }
-
-    // Register
-    public function register()
-    {
-        return view('form/register.php');
-    }
 }

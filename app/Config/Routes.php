@@ -38,8 +38,16 @@ $routes->set404Override();
 $routes->get('/', 'Home::index');
 $routes->get('/about', 'Home::about');
 $routes->get('/contact', 'Home::contact');
-$routes->get('/login', 'Home::login');
-$routes->get('/register', 'Home::register');
+
+// Login
+$routes->get('/login', 'Form::index');
+$routes->post('/login/to', 'Form::verify');
+
+// Register
+$routes->get('/register', 'Form::register');
+$routes->post('/register/create', 'Form::addUser');
+
+// Admin
 $routes->get('/backend', 'Backend::index');
 
 /*

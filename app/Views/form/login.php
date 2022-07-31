@@ -6,25 +6,27 @@
     <div class="card login-card">
       <div class="card-body login-information">
         <h5 class="card-title text-uppercase text-center login-title">Login Page</h5>
-        <form class="form-area my-4" action="" method="POST">
+        <?= $this->include('messages/messages') ?>
+        <form class="form-area my-4" action="/login/to" method="POST">
+          <?php csrf_field() ?>
 
           <div class="form-floating mb-3">
-            <input type="email" class="form-control form-input" id="floatingInput" placeholder="name@example.com">
+            <input type="email" name="email" class="form-control form-input <?= $validation->hasError('email') ? "is-invalid" : null ?>" id="floatingInput" placeholder="name@example.com" value="<?= old('email') ? old('email') : "" ?>">
             <label for="floatingInput">Email address</label>
           </div>
           <div class="form-floating mb-3">
-            <input type="password" class="form-control form-input" id="floatingPassword" placeholder="Password">
+            <input type="password" name="password" class="form-control form-input <?= $validation->hasError('password') ? "is-invalid" : null ?>" id="floatingPassword" placeholder="Password">
             <label for="floatingPassword">Password</label>
           </div>
 
           <div class="text-center my-4">
-            <p>Login as : </p>
+            <p>Login as :</p>
             <div class="form-check form-check-inline">
-              <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+              <input class="form-check-input" type="radio" name="roles" id="inlineRadio1" value="company">
               <label class="form-check-label" for="inlineRadio1">Company</label>
             </div>
             <div class="form-check form-check-inline">
-              <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
+              <input class="form-check-input" type="radio" name="roles" id="inlineRadio2" value="user">
               <label class="form-check-label" for="inlineRadio2">User</label>
             </div>
           </div>

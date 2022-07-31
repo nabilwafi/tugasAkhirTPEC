@@ -40,14 +40,14 @@
 #--------------------------------------------------------------------
 
 # database.default.hostname = localhost
-# database.default.database = ci4
+# database.default.database = 
 # database.default.username = root
 # database.default.password = root
 # database.default.DBDriver = MySQLi
 # database.default.DBPrefix =
 
 # database.tests.hostname = localhost
-# database.tests.database = ci4
+# database.tests.database = 
 # database.tests.username = root
 # database.tests.password = root
 # database.tests.DBDriver = MySQLi

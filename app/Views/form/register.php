@@ -6,25 +6,40 @@
     <div class="card login-card">
       <div class="card-body login-information">
         <h5 class="card-title text-uppercase text-center login-title">Register Page</h5>
-        <form class="form-area my-4" action="" method="POST">
+        <form class="form-area my-4" action="/register/create/" method="POST">
+          <?php csrf_field()  ?>
+          <input type="hidden" value="<?= old('name') ? old('name')  : "" ?>"/>
+
           <div class="form-floating mb-3">
-            <input name="name" type="text" class="form-control form-input" id="floatingInput" placeholder="name@example.com">
+            <input name="name" type="text" class="form-control form-input <?= $validation->hasError('name') ? "is-invalid" : null ?>" id="floatingInput" placeholder="name@example.com" value="<?= old('name') ?>">
             <label for="floatingInput">Name</label>
+            <?php if($validation->hasError('name')) : ?>
+              <p><?= $validation->showError('name') ?></p>
+            <?php endif ?>
           </div>
 
           <div class="form-floating mb-3">
-            <input name="email" type="email" class="form-control form-input" id="floatingInput" placeholder="name@example.com">
-            <label for="floatingInput">Email address</label>
+            <input name="email" type="email" class="form-control form-input <?= $validation->hasError('email') ? "is-invalid" : null ?>" id="floatingEmail" placeholder="name@example.com" value="<?= old('email') ? old('email')  : "" ?>">
+            <label for="floatingEmail">Email address</label>
+            <?php if($validation->hasError('email')) : ?>
+              <p><?= $validation->showError('email') ?></p>
+            <?php endif ?>
           </div>
 
           <div class="form-floating mb-3">
-            <input name="password" type="password" class="form-control form-input" id="floatingPassword" placeholder="Password">
+            <input name="password" type="password" class="form-control form-input <?= $validation->hasError('password') ? "is-invalid" : null ?>" id="floatingPassword" placeholder="Password">
             <label for="floatingPassword">Password</label>
+            <?php if($validation->hasError('password')) : ?>
+              <p><?= $validation->showError('password') ?></p>
+            <?php endif ?>
           </div>
 
           <div class="form-floating mb-3">
-            <input name="confirm_password" type="password" class="form-control form-input" id="floatingPassword" placeholder="Password">
-            <label for="floatingPassword">Confirm Password</label>
+            <input name="confirm_password" type="password" class="form-control form-input <?= $validation->hasError('confirm_password') ? "is-invalid" : null ?>" id="floatingConfirmPassword" placeholder="Password">
+            <label for="floatingConfirmPassword">Confirm Password</label>
+            <?php if($validation->hasError('confirm_password')) : ?>
+              <p><?= $validation->showError('confirm_password') ?></p>
+            <?php endif ?>
           </div>
 
           <div class="form-floating mb-3">
@@ -33,7 +48,7 @@
               <option value="company">Company</option>
               <option value="user">User</option>
             </select>
-            <label for="floatingSelect">Roles Users</label>
+            <label for="floatingSelect">Role Users</label>
           </div>
 
           <div class="text-center">
