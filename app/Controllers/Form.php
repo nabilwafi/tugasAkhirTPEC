@@ -17,6 +17,10 @@ class Form extends BaseController
 
     public function index()
     {
+        if(isset($_SESSION['user_id'])) {
+            return redirect()->to('/');
+        }
+
         $data = [
             'validation' => $this->validation
         ];
@@ -31,6 +35,7 @@ class Form extends BaseController
             'roles' => 'required'
         ])) {
             $validation = $this->validation;
+            // dd($validation);
             return redirect()->back()->withInput()->with('validation', $validation);
         }
 
@@ -42,8 +47,6 @@ class Form extends BaseController
 
         $data = $this->UsersModel->getUserData($this->request->getVar('email'));
 
-
-
         if($data != null) {
             if($data['email'] == $input['email']) {
                 if($data['password'] != $input['password']) {
@@ -51,13 +54,14 @@ class Form extends BaseController
                 }
 
                 if($data['roles'] == $input['roles']) {
-                    if($data['roles'] == 'user') {
-                        return redirect()->to('/user/dashboard');
-                    }
 
-                    return redirect()->to('/company/dashboard');
+                    $_SESSION['user_id'] = $data['id'];
+                    $_SESSION['name'] = $data['name'];
+                    $_SESSION['roles'] = $data['roles'];
+
+                    // dd($_SESSION['roles']);
+                    return redirect()->to('/dashboard');
                 }
-
 
                 return  redirect()->back()->with('error', 'You are not in that role, please try again!');
             }
@@ -67,7 +71,11 @@ class Form extends BaseController
     }
 
     public function register()
-    {
+    {  
+        if(isset($_SESSION['user_id'])) {
+            return redirect()->to('/');
+        }
+
         $data = [
             'validation' => $this->validation
         ];
@@ -102,5 +110,11 @@ class Form extends BaseController
         ]);
 
         return redirect()->to('/login')->with('success', 'Success Created Account, Please Log In First!');
+    }
+
+    public function logout()
+    {
+        $this->session->destroy();
+        return redirect()->to('/login');
     }
 }

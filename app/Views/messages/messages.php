@@ -4,6 +4,12 @@
   </div>
 <?php endif; ?>
 
+<?php if(isset($validation) && $validation->hasError('roles')) : ?>
+  <div class="alert alert-danger" role="alert">
+    <?= $validation->getError('roles') ?>
+  </div>
+<?php endif; ?>
+
 <?php if(session()->getFlashdata('error')) : ?>
   <div class="alert alert-danger" role="alert">
     <?= session()->getFlashdata('error'); ?>

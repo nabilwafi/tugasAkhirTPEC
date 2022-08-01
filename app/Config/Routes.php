@@ -50,6 +50,9 @@ $routes->post('/register/create', 'Form::addUser');
 // Admin
 $routes->get('/backend', 'Backend::index');
 
+// Logout
+$routes->get('/logout', 'Form::logout');
+
 /*
  * --------------------------------------------------------------------
  * Additional Routing
