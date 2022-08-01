@@ -19,7 +19,7 @@
                 <h4>Data Users</h4>
             </div>
             <div class="col mt-3">
-                <a href="/barang/tambah" class="btn btn-primary mb-3">Tambah Data Users</a>
+                <a href="/barang/tambah" class="btn btn-primary mb-3">Tambah Dataa Users</a>
             </div>
             <div class="card-body table-responsive">
                 <table class="table table-bordered table-md">
