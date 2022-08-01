@@ -6,6 +6,6 @@ class Backend extends BaseController
 {
     public function index()
     {
-        return view('backend/admin/home');
+        return view('backend/admin/default');
     }
 }
