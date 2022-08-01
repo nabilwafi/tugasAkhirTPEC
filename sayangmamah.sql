@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Aug 01, 2022 at 08:38 PM
+-- Generation Time: Aug 01, 2022 at 08:51 PM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.1.6
 
@@ -29,10 +29,17 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `admin` (
   `id` int(5) UNSIGNED NOT NULL,
-  `name` int(100) NOT NULL,
+  `name` varchar(100) NOT NULL,
   `email` varchar(100) NOT NULL,
   `password` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `admin`
+--
+
+INSERT INTO `admin` (`id`, `name`, `email`, `password`) VALUES
+(2, 'Admin', 'admin@admin', '12345678');
 
 -- --------------------------------------------------------
 
@@ -61,6 +68,15 @@ CREATE TABLE `couriers` (
   `name` varchar(100) NOT NULL,
   `harga` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `couriers`
+--
+
+INSERT INTO `couriers` (`id`, `name`, `harga`) VALUES
+(1, 'JNE', '20000'),
+(2, 'SICEPAT', '11000'),
+(3, 'NINJA', '15000');
 
 -- --------------------------------------------------------
 
@@ -175,7 +191,7 @@ ALTER TABLE `transactions`
 -- AUTO_INCREMENT for table `admin`
 --
 ALTER TABLE `admin`
-  MODIFY `id` int(5) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(5) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `companies`
@@ -187,7 +203,7 @@ ALTER TABLE `companies`
 -- AUTO_INCREMENT for table `couriers`
 --
 ALTER TABLE `couriers`
-  MODIFY `id` int(5) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(5) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `customers`

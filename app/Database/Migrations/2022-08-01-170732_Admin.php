@@ -16,7 +16,7 @@ class Admin extends Migration
                 'auto_increment' => true
             ],
             'name' => [
-                'type' => 'INT',
+                'type' => 'VARCHAR',
                 'constraint' => 100
             ],
             'email' => [
