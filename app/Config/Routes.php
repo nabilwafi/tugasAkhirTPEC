@@ -47,7 +47,6 @@ $routes->post('/login/to', 'Form::verify');
 $routes->get('/register', 'Form::register');
 $routes->post('/register/create', 'Form::addUser');
 
-
 // Logout
 $routes->get('/logout', 'Form::logout');
 
@@ -55,8 +54,11 @@ $routes->get('/logout', 'Form::logout');
 $routes->get('/login/admin', 'Form::indexAdmin');
 $routes->post('/login/admin/to', 'Form::verifyAdmin');
 
-// Admin & Company Dashboard
+// ------------------------------------------------- //
+
+// Company Dashboard
 $routes->get('/dashboard', 'Admin::index');
+
 //Tampil Users
 $routes->get('/dashboard/data/users', 'Admin::getUser');
 

@@ -4,41 +4,44 @@ namespace App\Database\Migrations;
 
 use CodeIgniter\Database\Migration;
 
-class Users extends Migration
+class Customer extends Migration
 {
     public function up()
     {
         $this->forge->addField([
             'id' => [
-                'type' => 'BIGINT',
-                'constraint' => 20,
+                'type' => 'INT',
+                'constraint' => 5,
                 'unsigned' => true,
                 'auto_increment' => true
             ],
             'name' => [
                 'type' => 'VARCHAR',
-                'constraint' => 250,
+                'constraint' => 100,
             ],
             'email' => [
                 'type' => 'VARCHAR',
                 'constraint' => 150,
             ],
+            'telp' => [
+                'type' => 'VARCHAR',
+                'constraint' => 120
+            ],
+            'alamat' => [
+                'type' => 'TEXT'
+            ],
             'password' => [
                 'type' => 'VARCHAR',
-                'constraint' => 150,
-            ],
-            'roles' => [
-                'type' => 'VARCHAR',
-                'constraint' => 50,
+                'constraint' => 150
             ]
         ]);
 
         $this->forge->addPrimaryKey('id');
-        $this->forge->createTable('users');
+        $this->forge->createTable('customers');
     }
 
     public function down()
     {
-        $this->forge->dropTable('users');
+        $this->forge->dropTable('customers');
     }
 }

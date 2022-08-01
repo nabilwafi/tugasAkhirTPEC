@@ -11,6 +11,7 @@ class Form extends BaseController
     protected $validation;
     public function __construct()
     {
+
         $this->UsersModel = new UsersModel();
         $this->validation = \Config\Services::validation();
     }
@@ -29,7 +30,7 @@ class Form extends BaseController
 
     public function indexAdmin()
     {
-        if(isset($_SESSION['user_id'])) {
+        if (isset($_SESSION['user_id'])) {
             return redirect()->to('/');
         }
 
@@ -85,7 +86,7 @@ class Form extends BaseController
             'roles' => 'required'
         ])) {
             $validation = $this->validation;
-            // dd($validation);
+            
             return redirect()->back()->withInput()->with('validation', $validation);
         }
 
