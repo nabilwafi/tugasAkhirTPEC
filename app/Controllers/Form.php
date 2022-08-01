@@ -6,7 +6,7 @@ use App\Controllers\BaseController;
 use App\Models\UsersModel;
 
 class Form extends BaseController
-{   
+{
     protected $UsersModel;
     protected $validation;
     public function __construct()
@@ -17,7 +17,7 @@ class Form extends BaseController
 
     public function index()
     {
-        if(isset($_SESSION['user_id'])) {
+        if (isset($_SESSION['user_id'])) {
             return redirect()->to('/');
         }
 
@@ -29,7 +29,7 @@ class Form extends BaseController
 
     public function verify()
     {
-        if(!$this->validate([
+        if (!$this->validate([
             'email' => 'required',
             'password' => 'required|min_length[6]',
             'roles' => 'required'
@@ -47,19 +47,19 @@ class Form extends BaseController
 
         $data = $this->UsersModel->getUserData($this->request->getVar('email'));
 
-        if($data != null) {
-            if($data['email'] == $input['email']) {
-                if($data['password'] != $input['password']) {
+        if ($data != null) {
+            if ($data['email'] == $input['email']) {
+                if ($data['password'] != $input['password']) {
                     return redirect()->back()->with('error', 'Invalid password, please try again!');
                 }
 
-                if($data['roles'] == $input['roles']) {
+                if ($data['roles'] == $input['roles']) {
 
                     $_SESSION['user_id'] = $data['id'];
                     $_SESSION['name'] = $data['name'];
                     $_SESSION['roles'] = $data['roles'];
 
-                    if($data['roles'] == 'company' || $data['roles'] == 'superadmin') {
+                    if ($data['roles'] == 'company' || $data['roles'] == 'superadmin') {
                         return redirect()->to('/dashboard');
                     }
 
@@ -74,8 +74,8 @@ class Form extends BaseController
     }
 
     public function register()
-    {  
-        if(isset($_SESSION['user_id'])) {
+    {
+        if (isset($_SESSION['user_id'])) {
             return redirect()->to('/');
         }
 
@@ -87,8 +87,8 @@ class Form extends BaseController
     }
 
     public function addUser()
-    {  
-        if(!$this->validate([
+    {
+        if (!$this->validate([
             'name' => 'required|min_length[5]',
             'email' => 'required|is_unique[users.email,id,{id}]',
             'password' => 'required|min_length[6]',
