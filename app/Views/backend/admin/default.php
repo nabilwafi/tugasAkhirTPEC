@@ -74,8 +74,7 @@
                 </a>
                 <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="buttons.html">Users Perusahaan</a>
-                        <a class="collapse-item" href="cards.html">Users Customer</a>
+                        <a class="collapse-item" href="buttons.html">Users Account</a>
                     </div>
                 </div>
             </li>
