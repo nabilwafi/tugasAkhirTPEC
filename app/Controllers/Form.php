@@ -59,8 +59,11 @@ class Form extends BaseController
                     $_SESSION['name'] = $data['name'];
                     $_SESSION['roles'] = $data['roles'];
 
-                    // dd($_SESSION['roles']);
-                    return redirect()->to('/dashboard');
+                    if($data['roles'] == 'company' || $data['roles'] == 'superadmin') {
+                        return redirect()->to('/dashboard');
+                    }
+
+                    return redirect()->to('/');
                 }
 
                 return  redirect()->back()->with('error', 'You are not in that role, please try again!');
