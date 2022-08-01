@@ -53,6 +53,9 @@ $routes->get('/backend', 'Backend::index');
 // Logout
 $routes->get('/logout', 'Form::logout');
 
+$routes->get('/login/admin', 'Form::indexAdmin');
+$routes->post('/login/admin/to', 'Form::verifyAdmin');
+
 /*
  * --------------------------------------------------------------------
  * Additional Routing
