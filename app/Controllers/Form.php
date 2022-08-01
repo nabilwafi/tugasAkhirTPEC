@@ -27,6 +27,56 @@ class Form extends BaseController
         return view('form/login.php', $data);
     }
 
+    public function indexAdmin()
+    {
+        if(isset($_SESSION['user_id'])) {
+            return redirect()->to('/');
+        }
+
+        $data = [
+            'validation' => $this->validation
+        ];
+        return view('form/loginAdmin.php', $data);
+    }
+
+    public function verifyAdmin()
+    {
+        if(!$this->validate([
+            'email' => 'required',
+            'password' => 'required|min_length[6]',
+        ])) {
+            $validation = $this->validation;
+            // dd($validation);
+            return redirect()->back()->withInput()->with('validation', $validation);
+        }
+
+        $input = [
+            'email' => $this->request->getVar('email'),
+            'password' => $this->request->getVar('password'),
+        ];
+
+        $data = $this->UsersModel->getUserData($this->request->getVar('email'));
+
+        if($data != null) {
+            if($data['roles'] == 'superadmin') {
+                if($data['email'] == $input['email']) {
+                    if($data['password'] != $input['password']) {
+                        return redirect()->back()->with('error', 'Invalid password, please try again!');
+                    }
+                        $_SESSION['user_id'] = $data['id'];
+                        $_SESSION['name'] = $data['name'];
+                        $_SESSION['roles'] = $data['roles'];
+                        
+                        return redirect()->to('/dashboard');
+                }
+                return redirect()->back()->withInput()->with('error', 'Invalid email, please try again!');
+            }
+            return redirect()->back()->withInput()->with('error', 'Your are not superadmin!');
+        }
+
+        return redirect()->back()->with('error', 'There\'s no your data in database, please register first');
+    }
+
     public function verify()
     {
         if(!$this->validate([

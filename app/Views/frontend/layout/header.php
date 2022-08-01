@@ -26,7 +26,7 @@
             <a class="nav-link btn btn-info text-center w-full nav-mobile" href="/register">Register</a>
           </li>
           <?php }else { ?>
-            <?php if($_SESSION['roles'] == 'company') { ?>
+            <?php if($_SESSION['roles'] == 'company' || $_SESSION['roles'] == 'superadmin') { ?>
               <li class="nav-item">
                 <a class="nav-link btn btn-info text-center w-full nav-mobile mb-2 py-2" href="/dashboard">Dashboard</a>
                 <a class="nav-link btn btn-info text-center w-full nav-mobile py-2" href="/logout">Logout</a>
@@ -54,7 +54,7 @@
             <a href="/register" class="btn btn-info w-100">Register</a>
           <?php } else { ?>
             <h1 class="user-name-title mb-3 mt-2 rounded py-3 px-2 text-center border">Hello, <?= $_SESSION['name'] ?></h1>
-            <?php if($_SESSION['roles'] == 'company') { ?>
+            <?php if($_SESSION['roles'] == 'company' || $_SESSION['roles'] == 'superadmin') { ?>
                 <a class="nav-link btn btn-info text-center w-full mb-2 py-2" href="/dashboard">Dashboard</a>
                 <a class="nav-link btn btn-info text-center w-full py-2" href="/logout">Logout</a>
                 <?php } else { ?>
