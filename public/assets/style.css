@@ -302,6 +302,10 @@ ul {
 }
 /* End of Login Page */
 
+.user-name-title {
+  font-size: 1rem;
+}
+
 /* Media Queries */
 @media screen and (min-width: 992px) {
   .btn-back {
