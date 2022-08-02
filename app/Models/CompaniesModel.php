@@ -40,22 +40,12 @@ class CompaniesModel extends Model
     protected $beforeDelete   = [];
     protected $afterDelete    = [];
 
-<<<<<<< HEAD
     public function getCompanyData($val = false, $column = '') {
         if(is_numeric($val)) {
             return $this->find($val);
         }
 
         if(is_string($val) && !$column) {
-=======
-    public function getCompanyData($val = false)
-    {
-        if (is_numeric($val)) {
-            return $this->find($val);
-        }
-
-        if (is_string($val)) {
->>>>>>> refs/remotes/origin/master
             return $this->where(['email' => $val])->first();
         }
         

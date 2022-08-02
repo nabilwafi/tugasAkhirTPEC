@@ -40,7 +40,6 @@ class CouriersModel extends Model
     protected $beforeDelete   = [];
     protected $afterDelete    = [];
 
-<<<<<<< HEAD
     public function getCourierData($val = false, $column = '') {
         if(is_numeric($val)) {
             return $this->find($val);
@@ -53,11 +52,5 @@ class CouriersModel extends Model
         if(is_string($val) && $column) {
             return $this->where([$column => $val])->findAll();
         }
-
-=======
-    public function getCourierData()
-    {
->>>>>>> refs/remotes/origin/master
-        return $this->findAll();
     }
 }
