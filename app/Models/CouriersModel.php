@@ -52,5 +52,7 @@ class CouriersModel extends Model
         if(is_string($val) && $column) {
             return $this->where([$column => $val])->findAll();
         }
+
+        return $this->findAll();
     }
 }
