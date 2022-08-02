@@ -3,26 +3,61 @@
 namespace App\Controllers;
 
 use App\Controllers\BaseController;
-use App\Models\UsersModel;
+use App\Models\AdminModel;
+use App\Models\CompaniesModel;
+use App\Models\CouriersModel;
+use App\Models\CustomersModel;
+use App\Models\TransactionsModel;
 
 class Admin extends BaseController
 {
-    protected $usersModel;
+    protected $adminModel;
+    protected $companiesModel;
+    protected $couriersModel;
+    protected $customersModel;
+    protected $transactionsModel;
     public function __construct()
     {
-        $this->usersModel = new UsersModel();
+        $this->adminModel = new AdminModel();
+        $this->companiesModel = new CompaniesModel();
+        $this->couriersModel = new CouriersModel();
+        $this->customersModel = new CustomersModel();
+        $this->transactionsModel = new TransactionsModel();
     }
 
     public function index()
     {
-        return view('backend/admin/home');
+        return view('admin/home');
     }
 
-    public function getUser()
+    public function getCompanyUsr()
     {
         $data = [
-            'users' => $this->usersModel->getUserData()
+            'compusers' => $this->companiesModel->getCompanyData()
         ];
-        return view('backend/user/data_user', $data);
+        return view('admin/user/data_company_user', $data);
+    }
+
+    public function getCompany()
+    {
+        $data = [
+            'company' => $this->companiesModel->getCompanyData()
+        ];
+        return view('admin/company/data_profile', $data);
+    }
+
+    public function delete($id)
+    {
+        $this->companiesModel->delete($id);
+        session()->setFlashdata('pesan', 'Data Berhasil Di Hapus');
+        return redirect()->to('/dashboard/data/company');
+    }
+
+    public function getCourier()
+    {
+        $data = [
+            'courier' => $this->couriersModel->getCourierData()
+        ];
+        return view('admin/courier/data_courier', $data);
     }
 }

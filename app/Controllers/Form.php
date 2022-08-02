@@ -8,23 +8,23 @@ use App\Models\CompaniesModel;
 use App\Models\CustomersModel;
 
 class Form extends BaseController
-{   
+{
     protected $customersModel;
     protected $companiesModel;
     protected $adminModel;
     protected $validation;
     public function __construct()
-    {   
+    {
         $this->customersModel = new CustomersModel();
         $this->companiesModel = new CompaniesModel();
         $this->adminModel = new AdminModel();
-        $this->validation = \Config\Services::validation();   
+        $this->validation = \Config\Services::validation();
     }
 
 
     public function indexUser()
     {
-        if(isset($_SESSION['user_id'])) {
+        if (isset($_SESSION['user_id'])) {
             return redirect()->to('/');
         }
 
@@ -37,7 +37,7 @@ class Form extends BaseController
 
     public function registerUser()
     {
-        if(isset($_SESSION['user_id'])) {
+        if (isset($_SESSION['user_id'])) {
             return redirect()->to('/');
         }
 
@@ -50,7 +50,7 @@ class Form extends BaseController
 
     public function addUser()
     {
-        if(!$this->validate([
+        if (!$this->validate([
             'name' => 'required|min_length[3]',
             'email' => 'required|is_unique[customers.email,id,{id}]',
             'alamat' => 'required|min_length[10]',
@@ -87,7 +87,7 @@ class Form extends BaseController
 
     public function verifyUser()
     {
-        if(!$this->validate([
+        if (!$this->validate([
             'email' => 'required',
             'password' => 'required|min_length[6]'
         ])) {
@@ -102,8 +102,8 @@ class Form extends BaseController
 
         $data = $this->customersModel->getCustomersData($input['email']);
 
-        if($data) {
-            if($data['email'] == $input['email'] && $data['password'] == $input['password']) {
+        if ($data) {
+            if ($data['email'] == $input['email'] && $data['password'] == $input['password']) {
                 $_SESSION['user_id'] = $data['id'];
                 $_SESSION['name'] = $data['name'];
                 $_SESSION['roles'] = $data['roles'];
@@ -118,7 +118,7 @@ class Form extends BaseController
 
     public function indexCompany()
     {
-        if(isset($_SESSION['user_id'])) {
+        if (isset($_SESSION['user_id'])) {
             return redirect()->to('/');
         }
 
@@ -131,7 +131,7 @@ class Form extends BaseController
 
     public function registerCompany()
     {
-        if(isset($_SESSION['user_id'])) {
+        if (isset($_SESSION['user_id'])) {
             return redirect()->to('/');
         }
 
@@ -144,7 +144,7 @@ class Form extends BaseController
 
     public function addCompany()
     {
-        if(!$this->validate([
+        if (!$this->validate([
             'name' => 'required|min_length[3]',
             'email' => 'required|is_unique[customers.email,id,{id}]',
             'alamat' => 'required|min_length[10]',
@@ -183,7 +183,7 @@ class Form extends BaseController
 
     public function verifyCompany()
     {
-        if(!$this->validate([
+        if (!$this->validate([
             'email' => 'required',
             'password' => 'required|min_length[6]'
         ])) {
@@ -198,8 +198,8 @@ class Form extends BaseController
 
         $data = $this->companiesModel->getCompanyData($input['email']);
 
-        if($data) {
-            if($data['email'] == $input['email'] && $data['password'] == $input['password']) {
+        if ($data) {
+            if ($data['email'] == $input['email'] && $data['password'] == $input['password']) {
                 $_SESSION['user_id'] = $data['id'];
                 $_SESSION['name'] = $data['nama'];
                 $_SESSION['roles'] = $data['roles'];
@@ -214,7 +214,7 @@ class Form extends BaseController
 
     public function indexAdmin()
     {
-        if(isset($_SESSION['user_id'])) {
+        if (isset($_SESSION['user_id'])) {
             return redirect()->to('/');
         }
 
@@ -227,7 +227,7 @@ class Form extends BaseController
 
     public function verifyAdmin()
     {
-        if(!$this->validate([
+        if (!$this->validate([
             'email' => 'required',
             'password' => 'required|min_length[6]'
         ])) {
@@ -242,8 +242,8 @@ class Form extends BaseController
 
         $data = $this->adminModel->getAdminData($input['email']);
 
-        if($data) {
-            if($data['email'] == $input['email'] && $data['password'] == $input['password']) {
+        if ($data) {
+            if ($data['email'] == $input['email'] && $data['password'] == $input['password']) {
                 $_SESSION['user_id'] = $data['id'];
                 $_SESSION['name'] = $data['name'];
                 $_SESSION['roles'] = $data['roles'];
@@ -257,8 +257,8 @@ class Form extends BaseController
     }
 
     public function logout()
-    {   
-        
+    {
+
         unset(
             $_SESSION['user_id'],
             $_SESSION['name'],

@@ -63,11 +63,24 @@ $routes->get('/logout', 'Form::logout');
 
 // ------------------------------------------------- //
 
-// Company Dashboard
+// Super Admin Dashboard
 $routes->get('/dashboard', 'Admin::index');
 
-//Tampil Users
-$routes->get('/dashboard/data/users', 'Admin::getUser');
+//Tampil Company Profile - Super Admin Dashboard
+$routes->get('/dashboard/data/company', 'Admin::getCompany');
+
+//Delete Company Profile - Super Admin Dashboard
+$routes->delete('/dashboard/data/company/data_profile/(:num)', 'Admin::delete/$1');
+
+//Tampil Users - Super Admin Dashboard
+$routes->get('/dashboard/data/users', 'Admin::getCompanyUsr');
+
+//Tampil Couriers - Super Admin Dashboard
+$routes->get('/dashboard/data/courier', 'Admin::getCourier');
+
+//Company Dashboard
+
+
 
 /*
  * --------------------------------------------------------------------
