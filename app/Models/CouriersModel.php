@@ -39,4 +39,9 @@ class CouriersModel extends Model
     protected $afterFind      = [];
     protected $beforeDelete   = [];
     protected $afterDelete    = [];
+
+    public function getCourierData()
+    {
+        return $this->findAll();
+    }
 }
