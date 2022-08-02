@@ -26,6 +26,11 @@ class Admin extends Migration
             'password' => [
                 'type' => 'VARCHAR',
                 'constraint' => 100
+            ],
+            'roles' => [
+                'type' => 'VARCHAR',
+                'constraint' => 50,
+                'default' => 'superadmin'
             ]
         ]);
 

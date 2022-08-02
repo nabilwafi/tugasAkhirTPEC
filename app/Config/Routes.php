@@ -39,20 +39,24 @@ $routes->get('/', 'Home::index');
 $routes->get('/about', 'Home::about');
 $routes->get('/contact', 'Home::contact');
 
-// Login
-$routes->get('/login', 'Form::index');
-$routes->post('/login/to', 'Form::verify');
-
-// Register
-$routes->get('/register', 'Form::register');
+// Login & Register User
+$routes->get('/login', 'Form::indexUser');
+$routes->post('/login/to', 'Form::verifyUser');
+$routes->get('/register', 'Form::registerUser');
 $routes->post('/register/create', 'Form::addUser');
 
-// Logout
-$routes->get('/logout', 'Form::logout');
+// Login & Register Company
+$routes->get('/login/company', 'Form::indexCompany');
+$routes->post('/login/company/to', 'Form::verifyCompany');
+$routes->get('/register/company', 'Form::registerCompany');
+$routes->post('/register/company/create', 'Form::addCompany');
 
 //login Admin
 $routes->get('/login/admin', 'Form::indexAdmin');
 $routes->post('/login/admin/to', 'Form::verifyAdmin');
+
+// Logout
+$routes->get('/logout', 'Form::logout');
 
 // ------------------------------------------------- //
 

@@ -37,6 +37,11 @@ class Company extends Migration
             'password' => [
                 'type' => 'VARCHAR',
                 'constraint' => 150,
+            ],
+            'roles' => [
+                'type' => 'VARCHAR',
+                'constraint' => 50,
+                'default' => 'company'
             ]
         ]);
 

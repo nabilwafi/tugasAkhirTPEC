@@ -22,6 +22,12 @@
     <!-- Header -->
     <?= $this->include('frontend/layout/header') ?>
     <!-- End of Header -->
+
+    <!-- Header -->
+    <?= $this->include('messages/messages') ?>
+    <!-- End of Header -->
+
+    
     
     <!-- Jumbotron -->
     <?= $this->include('frontend/layout/jumbotron') ?>

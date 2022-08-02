@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Aug 01, 2022 at 08:51 PM
+-- Generation Time: Aug 02, 2022 at 02:28 AM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.1.6
 
@@ -31,15 +31,16 @@ CREATE TABLE `admin` (
   `id` int(5) UNSIGNED NOT NULL,
   `name` varchar(100) NOT NULL,
   `email` varchar(100) NOT NULL,
-  `password` varchar(100) NOT NULL
+  `password` varchar(100) NOT NULL,
+  `roles` varchar(50) NOT NULL DEFAULT 'superadmin'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `admin`
 --
 
-INSERT INTO `admin` (`id`, `name`, `email`, `password`) VALUES
-(2, 'Admin', 'admin@admin', '12345678');
+INSERT INTO `admin` (`id`, `name`, `email`, `password`, `roles`) VALUES
+(1, 'Admin', 'admin@admin', '12345678', 'superadmin');
 
 -- --------------------------------------------------------
 
@@ -54,8 +55,16 @@ CREATE TABLE `companies` (
   `harga` varchar(150) NOT NULL,
   `email` varchar(150) NOT NULL,
   `alamat` text NOT NULL,
-  `password` varchar(150) NOT NULL
+  `password` varchar(150) NOT NULL,
+  `roles` varchar(50) NOT NULL DEFAULT 'company'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `companies`
+--
+
+INSERT INTO `companies` (`id`, `nama`, `jenis_devices`, `harga`, `email`, `alamat`, `password`, `roles`) VALUES
+(2, 'PT Tatanan Dunia Baru', 'laptop', '15000', 'company@company', 'jl. bandung raya bogor', '12345678', 'company');
 
 -- --------------------------------------------------------
 
@@ -90,8 +99,16 @@ CREATE TABLE `customers` (
   `email` varchar(150) NOT NULL,
   `telp` varchar(120) NOT NULL,
   `alamat` text NOT NULL,
-  `password` varchar(150) NOT NULL
+  `password` varchar(150) NOT NULL,
+  `roles` varchar(50) NOT NULL DEFAULT 'customer'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `customers`
+--
+
+INSERT INTO `customers` (`id`, `name`, `email`, `telp`, `alamat`, `password`, `roles`) VALUES
+(1, 'Muhammad Nabil Wafi', 'user@user', '12345678899', 'Jl. kemana aja', '12345678', 'customer');
 
 -- --------------------------------------------------------
 
@@ -114,11 +131,11 @@ CREATE TABLE `migrations` (
 --
 
 INSERT INTO `migrations` (`id`, `version`, `class`, `group`, `namespace`, `time`, `batch`) VALUES
-(4, '2022-08-01-170657', 'App\\Database\\Migrations\\Customer', 'default', 'App', 1659376508, 1),
-(5, '2022-08-01-170712', 'App\\Database\\Migrations\\Company', 'default', 'App', 1659378956, 2),
-(6, '2022-08-01-170719', 'App\\Database\\Migrations\\Courier', 'default', 'App', 1659378956, 2),
-(7, '2022-08-01-170732', 'App\\Database\\Migrations\\Admin', 'default', 'App', 1659378956, 2),
-(8, '2022-08-01-170703', 'App\\Database\\Migrations\\Transaksi', 'default', 'App', 1659378977, 3);
+(18, '2022-08-01-170657', 'App\\Database\\Migrations\\Customer', 'default', 'App', 1659391866, 1),
+(19, '2022-08-01-170712', 'App\\Database\\Migrations\\Company', 'default', 'App', 1659391866, 1),
+(20, '2022-08-01-170719', 'App\\Database\\Migrations\\Courier', 'default', 'App', 1659391866, 1),
+(21, '2022-08-01-170732', 'App\\Database\\Migrations\\Admin', 'default', 'App', 1659391866, 1),
+(22, '2022-08-01-170703', 'App\\Database\\Migrations\\Transaksi', 'default', 'App', 1659391870, 2);
 
 -- --------------------------------------------------------
 
@@ -191,13 +208,13 @@ ALTER TABLE `transactions`
 -- AUTO_INCREMENT for table `admin`
 --
 ALTER TABLE `admin`
-  MODIFY `id` int(5) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(5) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `companies`
 --
 ALTER TABLE `companies`
-  MODIFY `id` int(5) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(5) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `couriers`
@@ -209,13 +226,13 @@ ALTER TABLE `couriers`
 -- AUTO_INCREMENT for table `customers`
 --
 ALTER TABLE `customers`
-  MODIFY `id` int(5) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(5) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
 -- AUTO_INCREMENT for table `transactions`

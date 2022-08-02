@@ -3,51 +3,235 @@
 namespace App\Controllers;
 
 use App\Controllers\BaseController;
-use App\Models\UsersModel;
+use App\Models\AdminModel;
+use App\Models\CompaniesModel;
+use App\Models\CustomersModel;
 
 class Form extends BaseController
-{
-    protected $UsersModel;
+{   
+    protected $customersModel;
+    protected $companiesModel;
+    protected $adminModel;
     protected $validation;
     public function __construct()
-    {
-
-        $this->UsersModel = new UsersModel();
-        $this->validation = \Config\Services::validation();
+    {   
+        $this->customersModel = new CustomersModel();
+        $this->companiesModel = new CompaniesModel();
+        $this->adminModel = new AdminModel();
+        $this->validation = \Config\Services::validation();   
     }
 
-    public function index()
+
+    public function indexUser()
     {
-        if (isset($_SESSION['user_id'])) {
+        if(isset($_SESSION['user_id'])) {
             return redirect()->to('/');
         }
 
         $data = [
             'validation' => $this->validation
         ];
-        return view('form/login.php', $data);
+
+        return view('form/user/login', $data);
+    }
+
+    public function registerUser()
+    {
+        if(isset($_SESSION['user_id'])) {
+            return redirect()->to('/');
+        }
+
+        $data = [
+            'validation' =>  $this->validation
+        ];
+
+        return view('form/user/register', $data);
+    }
+
+    public function addUser()
+    {
+        if(!$this->validate([
+            'name' => 'required|min_length[3]',
+            'email' => 'required|is_unique[customers.email,id,{id}]',
+            'alamat' => 'required|min_length[10]',
+            'telp' => [
+                'rules' => 'required|numeric',
+                'errors' => [
+                    'required' => 'The Phone field is required',
+                    'numeric' => 'The Phone field must contain only numbers'
+                ]
+            ],
+            'password' => 'required|min_length[6]',
+            'confirm_password' => [
+                'rules' => 'required|matches[password]',
+                'errors' => [
+                    'required' => 'The confirm password field is required',
+                    'matches' => 'The confirm password is not matchs with password'
+                ]
+            ]
+        ])) {
+            $validation = $this->validation;
+            return redirect()->back()->withInput()->with('validation', $validation);
+        }
+
+        $this->customersModel->save([
+            'name' => $this->request->getVar('name'),
+            'email' => $this->request->getVar('email'),
+            'alamat' => $this->request->getVar('alamat'),
+            'telp' => $this->request->getVar('telp'),
+            'password' => $this->request->getVar('password')
+        ]);
+
+        return redirect()->to('/login/user')->with('success', 'Success created account, please log in first!');
+    }
+
+    public function verifyUser()
+    {
+        if(!$this->validate([
+            'email' => 'required',
+            'password' => 'required|min_length[6]'
+        ])) {
+            $validation = $this->validation;
+            return redirect()->back()->withInput()->with('validation', $validation);
+        }
+
+        $input = [
+            'email' => $this->request->getVar('email'),
+            'password' => $this->request->getVar('password'),
+        ];
+
+        $data = $this->customersModel->getCustomersData($input['email']);
+
+        if($data) {
+            if($data['email'] == $input['email'] && $data['password'] == $input['password']) {
+                $_SESSION['user_id'] = $data['id'];
+                $_SESSION['name'] = $data['name'];
+                $_SESSION['roles'] = $data['roles'];
+                return redirect()->to('/');
+            }
+
+            return redirect()->back()->withInput()->with('error', 'invalid input email or password, please try again!');
+        }
+
+        return redirect()->back()->with('error', 'there\'s no data on database, please register as customer first!');
+    }
+
+    public function indexCompany()
+    {
+        if(isset($_SESSION['user_id'])) {
+            return redirect()->to('/');
+        }
+
+        $data = [
+            'validation' => $this->validation
+        ];
+
+        return view('form/company/login', $data);
+    }
+
+    public function registerCompany()
+    {
+        if(isset($_SESSION['user_id'])) {
+            return redirect()->to('/');
+        }
+
+        $data = [
+            'validation' =>  $this->validation
+        ];
+
+        return view('form/company/register', $data);
+    }
+
+    public function addCompany()
+    {
+        if(!$this->validate([
+            'name' => 'required|min_length[3]',
+            'email' => 'required|is_unique[customers.email,id,{id}]',
+            'alamat' => 'required|min_length[10]',
+            'harga' => 'required|numeric',
+            'password' => 'required|min_length[6]',
+            'confirm_password' => [
+                'rules' => 'required|matches[password]',
+                'errors' => [
+                    'required' => 'The confirm password field is required',
+                    'matches' => 'The confirm password is not matchs with password'
+                ],
+            ],
+            'jenis_devices' => [
+                'rules' => 'required|in_list[handphone,laptop,pc,printer]',
+                'errors' => [
+                    'required' => 'The jenis devices field is required',
+                    'in_list' => 'The jenis devices field must be on of: Handphone, Laptop, PC, Printer'
+                ]
+            ]
+        ])) {
+            $validation = $this->validation;
+            return redirect()->back()->withInput()->with('validation', $validation);
+        }
+
+        $this->companiesModel->save([
+            'nama' => $this->request->getVar('name'),
+            'jenis_devices' => $this->request->getVar('jenis_devices'),
+            'harga' => $this->request->getVar('harga'),
+            'email' => $this->request->getVar('email'),
+            'alamat' => $this->request->getVar('alamat'),
+            'password' => $this->request->getVar('password')
+        ]);
+
+        return redirect()->to('/login/company')->with('success', 'Success created account, please log in first!');
+    }
+
+    public function verifyCompany()
+    {
+        if(!$this->validate([
+            'email' => 'required',
+            'password' => 'required|min_length[6]'
+        ])) {
+            $validation = $this->validation;
+            return redirect()->back()->withInput()->with('validation', $validation);
+        }
+
+        $input = [
+            'email' => $this->request->getVar('email'),
+            'password' => $this->request->getVar('password'),
+        ];
+
+        $data = $this->companiesModel->getCompanyData($input['email']);
+
+        if($data) {
+            if($data['email'] == $input['email'] && $data['password'] == $input['password']) {
+                $_SESSION['user_id'] = $data['id'];
+                $_SESSION['name'] = $data['nama'];
+                $_SESSION['roles'] = $data['roles'];
+                return redirect()->to('/dashboard');
+            }
+
+            return redirect()->back()->withInput()->with('error', 'invalid input email or password, please try again!');
+        }
+
+        return redirect()->back()->with('error', 'there\'s no data on database, please register as company first!');
     }
 
     public function indexAdmin()
     {
-        if (isset($_SESSION['user_id'])) {
+        if(isset($_SESSION['user_id'])) {
             return redirect()->to('/');
         }
 
         $data = [
             'validation' => $this->validation
         ];
-        return view('form/loginAdmin.php', $data);
+
+        return view('form/admin/login', $data);
     }
 
     public function verifyAdmin()
     {
         if(!$this->validate([
             'email' => 'required',
-            'password' => 'required|min_length[6]',
+            'password' => 'required|min_length[6]'
         ])) {
             $validation = $this->validation;
-            // dd($validation);
             return redirect()->back()->withInput()->with('validation', $validation);
         }
 
@@ -56,119 +240,30 @@ class Form extends BaseController
             'password' => $this->request->getVar('password'),
         ];
 
-        $data = $this->UsersModel->getUserData($this->request->getVar('email'));
+        $data = $this->adminModel->getAdminData($input['email']);
 
-        if($data != null) {
-            if($data['roles'] == 'superadmin') {
-                if($data['email'] == $input['email']) {
-                    if($data['password'] != $input['password']) {
-                        return redirect()->back()->with('error', 'Invalid password, please try again!');
-                    }
-                        $_SESSION['user_id'] = $data['id'];
-                        $_SESSION['name'] = $data['name'];
-                        $_SESSION['roles'] = $data['roles'];
-                        
-                        return redirect()->to('/dashboard');
-                }
-                return redirect()->back()->withInput()->with('error', 'Invalid email, please try again!');
+        if($data) {
+            if($data['email'] == $input['email'] && $data['password'] == $input['password']) {
+                $_SESSION['user_id'] = $data['id'];
+                $_SESSION['name'] = $data['name'];
+                $_SESSION['roles'] = $data['roles'];
+                return redirect()->to('/');
             }
-            return redirect()->back()->withInput()->with('error', 'Your are not superadmin!');
+
+            return redirect()->back()->withInput()->with('error', 'invalid input email or password, please try again!');
         }
 
-        return redirect()->back()->with('error', 'There\'s no your data in database, please register first');
-    }
-
-    public function verify()
-    {
-        if (!$this->validate([
-            'email' => 'required',
-            'password' => 'required|min_length[6]',
-            'roles' => 'required'
-        ])) {
-            $validation = $this->validation;
-            
-            return redirect()->back()->withInput()->with('validation', $validation);
-        }
-
-        $input = [
-            'email' => $this->request->getVar('email'),
-            'password' => $this->request->getVar('password'),
-            'roles' => $this->request->getVar('roles')
-        ];
-
-        $data = $this->UsersModel->getUserData($this->request->getVar('email'));
-
-        if ($data != null) {
-            if ($data['email'] == $input['email']) {
-                if ($data['password'] != $input['password']) {
-                    return redirect()->back()->with('error', 'Invalid password, please try again!');
-                }
-
-                if ($data['roles'] == $input['roles']) {
-
-                    $_SESSION['user_id'] = $data['id'];
-                    $_SESSION['name'] = $data['name'];
-                    $_SESSION['roles'] = $data['roles'];
-
-                    if ($data['roles'] == 'company' || $data['roles'] == 'superadmin') {
-                        return redirect()->to('/dashboard');
-                    }
-
-                    return redirect()->to('/');
-                }
-
-                return  redirect()->back()->with('error', 'You are not in that role, please try again!');
-            }
-        }
-
-        return redirect()->back()->with('error', 'There\'s no your data in database, please register first');
-    }
-
-    public function register()
-    {
-        if (isset($_SESSION['user_id'])) {
-            return redirect()->to('/');
-        }
-
-        $data = [
-            'validation' => $this->validation
-        ];
-
-        return view('form/register.php', $data);
-    }
-
-    public function addUser()
-    {
-        if (!$this->validate([
-            'name' => 'required|min_length[5]',
-            'email' => 'required|is_unique[users.email,id,{id}]',
-            'password' => 'required|min_length[6]',
-            'confirm_password' => [
-                'rules' => 'required|matches[password]',
-                'errors' => [
-                    'required' => 'The Confirm Password field is required',
-                    'matches' => 'The Confirm Password field does not match the password field'
-                ],
-            ],
-            'roles' => 'required'
-        ])) {
-            $validation = $this->validation;
-            return redirect()->back()->withInput()->with('validation', $validation);
-        }
-
-        $this->UsersModel->save([
-            'name' => $this->request->getVar('name'),
-            'email' => $this->request->getVar('email'),
-            'password' => $this->request->getVar('password'),
-            'roles' => $this->request->getVar('roles'),
-        ]);
-
-        return redirect()->to('/login')->with('success', 'Success Created Account, Please Log In First!');
+        return redirect()->back()->with('error', 'there\'s no data on database, YOU ARE NOT ADMIN!');
     }
 
     public function logout()
-    {
-        $this->session->destroy();
-        return redirect()->to('/login');
+    {   
+        
+        unset(
+            $_SESSION['user_id'],
+            $_SESSION['name'],
+            $_SESSION['roles']
+        );
+        return redirect()->to('/')->with('success-logout', 'Successfully logout');
     }
 }
