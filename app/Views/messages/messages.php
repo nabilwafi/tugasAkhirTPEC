@@ -4,6 +4,12 @@
   </div>
 <?php endif; ?>
 
+<?php if(session()->getFlashdata('information')) : ?>
+  <div class="alert alert-info" role="alert">
+    <?= session()->getFlashdata('information'); ?>
+  </div>
+<?php endif; ?>
+
 <?php if(session()->getFlashData('success-logout')) : ?>
   <div class="position-relative container toast-wrapper">
       <div class="toast toast-logout position-absolute align-items-center text-bg-success py-1 border-0 show" role="alert" aria-live="assertive" aria-atomic="true">

@@ -82,7 +82,7 @@ class Form extends BaseController
             'password' => $this->request->getVar('password')
         ]);
 
-        return redirect()->to('/login/user')->with('success', 'Success created account, please log in first!');
+        return redirect()->to('/login')->with('success', 'Success created account, please log in first!');
     }
 
     public function verifyUser()

@@ -448,6 +448,10 @@ ul {
     margin-bottom: 0;
   }
   /* End of About Page */
+
+  .checkout-form {
+    width: 1000px;
+  }
 }
 
 /* End of Media Queries */

@@ -30,7 +30,7 @@ class Transaksi extends Migration
                 'unsigned' => true,
                 'constraint' => 5,
             ],
-            'jenis_devices' => [
+            'nama_device' => [
                 'type' => 'INT',
                 'constraint' => 150,
             ],
