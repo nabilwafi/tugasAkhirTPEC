@@ -79,6 +79,11 @@ $routes->get('/dashboard/data/users', 'Admin::getCompanyUsr');
 $routes->get('/dashboard/data/courier', 'Admin::getCourier');
 
 //Company Dashboard
+$routes->get('/dashboard/company', 'Company::index');
+
+// Logout Company Dashboard
+$routes->get('/logout', 'Company::logout');
+
 
 
 /*

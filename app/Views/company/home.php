@@ -1,4 +1,4 @@
-<?= $this->extend('backend/admin/default'); ?>
+<?= $this->extend('company/default'); ?>
 
 
 <?= $this->section('content'); ?>
