@@ -6,36 +6,47 @@
             <h1 class="text-center home-title">SERVICES</h1>
 
             <div class="row w-100 home-products">
-                <div class="card home-product col-3">
+                <div class="card home-product col-2">
                     <div class="home-product-img">
                         <img class="w-100 home-img" src="/assets/images/about-img-umbr.jpg" alt="">
                     </div>
 
                     <div class="card-body position-absolute text-white text-center home-information">
                         <h5 class="card-title home-information-title">Service Computer</h5>
-                        <a href="/" class="btn btn-primary">Take Service</a>
+                        <a href="/take/services/<?= 'pc' ?>" class="btn btn-primary">Take Service</a>
                     </div>
                 </div>
 
-                <div class="card home-product col-3">
+                <div class="card home-product col-2">
                     <div class="home-product-img">
                         <img class="w-100 home-img" src="/assets/images/about-img-umbr.jpg" alt="">
                     </div>
 
                     <div class="card-body position-absolute text-white text-center home-information">
                         <h5 class="card-title home-information-title">Service Handphone</h5>
-                        <a href="/" class="btn btn-primary">Take Service</a>
+                        <a href="/take/services/<?= 'handphone' ?>" class="btn btn-primary">Take Service</a>
                     </div>
                 </div>
 
-                <div class="card home-product col-3">
+                <div class="card home-product col-2">
                     <div class="home-product-img">
                         <img class="w-100 home-img" src="/assets/images/about-img-umbr.jpg" alt="">
                     </div>
 
                     <div class="card-body position-absolute text-white text-center home-information">
                         <h5 class="card-title home-information-title">Service Laptop</h5>
-                        <a href="/" class="btn btn-primary">Take Service</a>
+                        <a href="/take/services/<?= 'laptop' ?>" class="btn btn-primary">Take Service</a>
+                    </div>
+                </div>
+
+                <div class="card home-product col-2">
+                    <div class="home-product-img">
+                        <img class="w-100 home-img" src="/assets/images/about-img-umbr.jpg" alt="">
+                    </div>
+
+                    <div class="card-body position-absolute text-white text-center home-information">
+                        <h5 class="card-title home-information-title">Service Printer</h5>
+                        <a href="/take/services/<?= 'printer' ?>" class="btn btn-primary">Take Service</a>
                     </div>
                 </div>
             </div>

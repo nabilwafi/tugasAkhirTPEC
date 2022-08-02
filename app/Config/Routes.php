@@ -51,6 +51,9 @@ $routes->post('/login/company/to', 'Form::verifyCompany');
 $routes->get('/register/company', 'Form::registerCompany');
 $routes->post('/register/company/create', 'Form::addCompany');
 
+// Pesanan
+$routes->get('/take/services/(:segment)', 'Pesanan::index/$1');
+
 //login Admin
 $routes->get('/login/admin', 'Form::indexAdmin');
 $routes->post('/login/admin/to', 'Form::verifyAdmin');
