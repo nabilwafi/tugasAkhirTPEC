@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Aug 02, 2022 at 02:28 AM
+-- Generation Time: Aug 03, 2022 at 08:08 AM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.1.6
 
@@ -64,7 +64,9 @@ CREATE TABLE `companies` (
 --
 
 INSERT INTO `companies` (`id`, `nama`, `jenis_devices`, `harga`, `email`, `alamat`, `password`, `roles`) VALUES
-(2, 'PT Tatanan Dunia Baru', 'laptop', '15000', 'company@company', 'jl. bandung raya bogor', '12345678', 'company');
+(1, 'PT Restu Sehat Selalu', 'handphone', '15000', 'restu@restu', 'Jl. Bandung Pasteur', '12345678', 'company'),
+(2, 'PT Tatanan Dunia Baru', 'laptop', '10000', 'company@company', 'Jl. Bersama Rakyat', '12345678', 'company'),
+(3, 'PT Faris Bersama Warga Baleendah', 'laptop', '20000', 'faris@faris', 'Jl. Pasti Selalu Bisa', '12345678', 'company');
 
 -- --------------------------------------------------------
 
@@ -131,11 +133,16 @@ CREATE TABLE `migrations` (
 --
 
 INSERT INTO `migrations` (`id`, `version`, `class`, `group`, `namespace`, `time`, `batch`) VALUES
-(18, '2022-08-01-170657', 'App\\Database\\Migrations\\Customer', 'default', 'App', 1659391866, 1),
-(19, '2022-08-01-170712', 'App\\Database\\Migrations\\Company', 'default', 'App', 1659391866, 1),
-(20, '2022-08-01-170719', 'App\\Database\\Migrations\\Courier', 'default', 'App', 1659391866, 1),
-(21, '2022-08-01-170732', 'App\\Database\\Migrations\\Admin', 'default', 'App', 1659391866, 1),
-(22, '2022-08-01-170703', 'App\\Database\\Migrations\\Transaksi', 'default', 'App', 1659391870, 2);
+(23, '2022-08-01-170657', 'App\\Database\\Migrations\\Customer', 'default', 'App', 1659413758, 1),
+(24, '2022-08-01-170712', 'App\\Database\\Migrations\\Company', 'default', 'App', 1659413758, 1),
+(25, '2022-08-01-170719', 'App\\Database\\Migrations\\Courier', 'default', 'App', 1659413758, 1),
+(26, '2022-08-01-170732', 'App\\Database\\Migrations\\Admin', 'default', 'App', 1659413758, 1),
+(27, '2022-08-01-170703', 'App\\Database\\Migrations\\Transaksi', 'default', 'App', 1659413762, 2),
+(28, '2022-08-02-134359', 'App\\Database\\Migrations\\UpdateTransactions', 'default', 'App', 1659448987, 3),
+(29, '2022-08-02-134425', 'App\\Database\\Migrations\\Orders', 'default', 'App', 1659449029, 4),
+(30, '2022-08-02-140439', 'App\\Database\\Migrations\\DeleteTableOrders', 'default', 'App', 1659449089, 5),
+(31, '2022-08-02-143735', 'App\\Database\\Migrations\\DropTableTransactions', 'default', 'App', 1659451484, 6),
+(32, '2022-08-02-143813', 'App\\Database\\Migrations\\ChangeOrderTableToTransactions', 'default', 'App', 1659451484, 6);
 
 -- --------------------------------------------------------
 
@@ -148,14 +155,21 @@ CREATE TABLE `transactions` (
   `id_customer` int(5) UNSIGNED NOT NULL,
   `id_company` int(5) UNSIGNED NOT NULL,
   `id_courier` int(5) UNSIGNED NOT NULL,
-  `jenis_devices` int(150) NOT NULL,
+  `nama_device` varchar(150) NOT NULL,
   `keluhan` text NOT NULL,
-  `ppn` int(5) NOT NULL,
-  `total_harga` int(5) NOT NULL,
-  `bukti_pembayaran` varchar(150) DEFAULT NULL,
-  `status_transaksi` enum('belum bayar','menunggu verifikasi','pembayaran diterima','device dalam proses','device selesai diperbaiki','transaksi selesai') NOT NULL DEFAULT 'belum bayar',
+  `ppn` varchar(10) DEFAULT NULL,
+  `total_harga` varchar(50) DEFAULT NULL,
+  `bukti_pembayaran` varchar(50) DEFAULT NULL,
+  `status_transaksi` enum('belum bayar','menunggu verifikasi','pembayaran diterima','device dalam proses','device selesai diperbaiki','transaksi selesai') DEFAULT 'belum bayar',
   `created_at` datetime DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `transactions`
+--
+
+INSERT INTO `transactions` (`id`, `id_customer`, `id_company`, `id_courier`, `nama_device`, `keluhan`, `ppn`, `total_harga`, `bukti_pembayaran`, `status_transaksi`, `created_at`) VALUES
+(4, 1, 3, 1, 'HP 150 PX', 'rusak layar', '20%', '48000', NULL, 'belum bayar', '2022-08-03 12:54:18');
 
 --
 -- Indexes for dumped tables
@@ -214,7 +228,7 @@ ALTER TABLE `admin`
 -- AUTO_INCREMENT for table `companies`
 --
 ALTER TABLE `companies`
-  MODIFY `id` int(5) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(5) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `couriers`
@@ -232,13 +246,13 @@ ALTER TABLE `customers`
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
 
 --
 -- AUTO_INCREMENT for table `transactions`
 --
 ALTER TABLE `transactions`
-  MODIFY `id` int(5) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(5) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- Constraints for dumped tables
