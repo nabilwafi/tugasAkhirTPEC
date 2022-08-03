@@ -14,7 +14,7 @@ class TransactionsModel extends Model
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
-    protected $allowedFields    = [];
+    protected $allowedFields    = ['id_customer', 'id_company', 'id_courier', 'nama_device', 'keluhan', 'ppn', 'total_harga', 'bukti_pembayaran', 'status_transaksi'];
 
     // Dates
     protected $useTimestamps = false;
