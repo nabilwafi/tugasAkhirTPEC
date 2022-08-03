@@ -28,7 +28,7 @@
 
     <!-- Nav Item - Pages Collapse Menu -->
     <li class="nav-item">
-        <a class="nav-link" href="/dashboard/data/company">
+        <a class="nav-link" href="/dashboard/company/profile/<?= $_SESSION["user_id"] ?>">
             <i class="fas fa-fw fa-torii-gate"></i>
             <span>Profile Perusahaan</span>
         </a>

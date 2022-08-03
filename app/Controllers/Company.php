@@ -31,6 +31,11 @@ class Company extends BaseController
         return view('company/home');
     }
 
+    public function profilePerusahaan($company)
+    {
+        echo $company; 
+    }
+
     public function logout()
     {
 
