@@ -39,6 +39,6 @@ class Company extends BaseController
             $_SESSION['name'],
             $_SESSION['roles']
         );
-        return redirect()->to('/')->with('success-logout', 'Successfully logout');
+        return redirect()->to('/login/company')->with('success', 'Successfully logout');
     }
 }

@@ -80,12 +80,14 @@ $routes->get('/dashboard/data/users', 'Admin::getCompanyUsr');
 //Tampil Couriers - Super Admin Dashboard
 $routes->get('/dashboard/data/courier', 'Admin::getCourier');
 
+
+// ------------------------------------------------- //
+
 //Company Dashboard
 $routes->get('/dashboard/company', 'Company::index');
 
 // Logout Company Dashboard
-$routes->get('/logout', 'Company::logout');
-
+$routes->get('/company/logout', 'Company::logout');
 
 
 /*
