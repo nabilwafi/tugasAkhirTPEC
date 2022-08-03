@@ -89,6 +89,9 @@ $routes->get('/dashboard/company', 'Company::index');
 //company profile dashboard
 $routes->get('/dashboard/company/profile/(:num)', 'Company::profilePerusahaan/$1');
 
+//company edit profile dashboard
+$routes->get('/dashboard/company/profile/editprofile/(:num)', 'Company::editProfile/$1');
+
 
 // Logout Company Dashboard
 $routes->get('/company/logout', 'Company::logout');

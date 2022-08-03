@@ -33,7 +33,17 @@ class Company extends BaseController
 
     public function profilePerusahaan($company)
     {
-        echo $company; 
+
+        $data = [
+            'company' => $this->companiesModel->getCompanyData($company)
+        ];
+        return view('company/profile', $data);
+    }
+
+    public function editProfile($company)
+    {
+      echo 'ISI nya model nya belum nemu buat edit updte nya';
+     
     }
 
     public function logout()
