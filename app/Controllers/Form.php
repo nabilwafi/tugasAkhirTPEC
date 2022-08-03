@@ -203,7 +203,7 @@ class Form extends BaseController
                 $_SESSION['user_id'] = $data['id'];
                 $_SESSION['name'] = $data['nama'];
                 $_SESSION['roles'] = $data['roles'];
-                return redirect()->to('/dashboard');
+                return redirect()->to('/');
             }
 
             return redirect()->back()->withInput()->with('error', 'invalid input email or password, please try again!');
