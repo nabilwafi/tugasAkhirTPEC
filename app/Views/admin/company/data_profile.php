@@ -37,7 +37,9 @@
                             <td style="vertical-align: middle;"><?= $cmp['email']; ?></td>
                             <td style="vertical-align: middle;">
 
-                                <form action="/company/data_profile/<?= $cmp["id"]; ?>" method="post" class="d-inline">
+                                <a href="/dashboard/data/company/edit/<?= $cmp["id"]; ?>" class="btn btn-warning">Edit</a>
+
+                                <form action="/dashboard/data/company/data_profile/<?= $cmp["id"]; ?>" method="post" class="d-inline">
                                     <?= csrf_field(); ?>
                                     <input type="hidden" name="_method" value="DELETE">
                                     <button type="submit" class="btn btn-danger" onclick="return confirm('apakah anda yakin?');">Delete</button>

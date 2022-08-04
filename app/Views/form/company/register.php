@@ -13,7 +13,7 @@
           <div class="form-floating mb-3">
             <input name="name" type="text" class="form-control form-input <?= $validation->hasError('name') ? "is-invalid" : null ?>" id="floatingInput" placeholder="name@example.com" value="<?= old('name') ?>">
             <label for="floatingInput">Name Company</label>
-            <?php if($validation->hasError('name')) : ?>
+            <?php if ($validation->hasError('name')) : ?>
               <p class="invalid-feedback"><?= $validation->showError('name') ?></p>
             <?php endif ?>
           </div>
@@ -21,7 +21,7 @@
           <div class="form-floating mb-3">
             <input name="email" type="email" class="form-control form-input <?= $validation->hasError('email') ? "is-invalid" : null ?>" id="floatingEmail" placeholder="name@example.com" value="<?= old('email') ? old('email')  : "" ?>">
             <label for="floatingEmail">Email address</label>
-            <?php if($validation->hasError('email')) : ?>
+            <?php if ($validation->hasError('email')) : ?>
               <p class="invalid-feedback"><?= $validation->showError('email') ?></p>
             <?php endif ?>
           </div>
@@ -29,7 +29,7 @@
           <div class="form-floating mb-3">
             <input name="harga" type="text" class="form-control form-input <?= $validation->hasError('harga') ? "is-invalid" : null ?>" id="floatingHarga" placeholder="name@example.com" value="<?= old('harga') ? old('harga')  : "" ?>">
             <label for="floatingHarga">Harga</label>
-            <?php if($validation->hasError('harga')) : ?>
+            <?php if ($validation->hasError('harga')) : ?>
               <p class="invalid-feedback"><?= $validation->showError('harga') ?></p>
             <?php endif ?>
           </div>
@@ -37,7 +37,7 @@
           <div class="form-floating mb-3">
             <textarea name="alamat" class="form-control form-input <?= $validation->hasError('alamat') ? "is-invalid" : null ?>" placeholder="Your Address" id="floatingTextarea2" style="height: 100px"><?= old('alamat') ? old('alamat')  : "" ?></textarea>
             <label for="floatingTextarea2">Address</label>
-            <?php if($validation->hasError('alamat')) : ?>
+            <?php if ($validation->hasError('alamat')) : ?>
               <p class="invalid-feedback"><?= $validation->showError('alamat') ?></p>
             <?php endif ?>
           </div>
@@ -46,7 +46,7 @@
             <div class="form-floating col">
               <input name="password" type="password" class="form-control form-input <?= $validation->hasError('password') ? "is-invalid" : null ?>" id="floatingPassword" placeholder="Password">
               <label for="floatingPassword">Password</label>
-              <?php if($validation->hasError('password')) : ?>
+              <?php if ($validation->hasError('password')) : ?>
                 <p class="invalid-feedback"><?= $validation->showError('password') ?></p>
               <?php endif ?>
             </div>
@@ -54,7 +54,7 @@
             <div class="form-floating col">
               <input name="confirm_password" type="password" class="form-control form-input <?= $validation->hasError('confirm_password') ? "is-invalid" : null ?>" id="floatingConfirmPassword" placeholder="Password">
               <label for="floatingConfirmPassword">Confirm Password</label>
-              <?php if($validation->hasError('confirm_password')) : ?>
+              <?php if ($validation->hasError('confirm_password')) : ?>
                 <p class="invalid-feedback"><?= $validation->showError('confirm_password') ?></p>
               <?php endif ?>
             </div>

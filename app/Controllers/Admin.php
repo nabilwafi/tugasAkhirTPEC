@@ -47,11 +47,51 @@ class Admin extends BaseController
         return view('admin/company/data_profile', $data);
     }
 
+    public function editComp($id)
+    {
+        $data = [
+            'company' => $this->companiesModel->getCompanyData($id)
+        ];
+        return view('admin/company/form_edit_company', $data);
+    }
+
+    public function updateComp($id)
+    {
+        $this->companiesModel->save([
+            'id' => $id,
+            'nama' => $this->request->getVar('nama'),
+            'alamat' => $this->request->getVar('alamat'),
+            'jenis_devices' => $this->request->getVar('jenis_devices'),
+            'harga' => $this->request->getVar('harga'),
+            'email' => $this->request->getVar('email')
+        ]);
+        session()->setFlashdata('pesan', 'Data Berhasil Di Update');
+        return redirect()->to('/dashboard/data/company');
+    }
+
+    public function editUsr($id)
+    {
+        $data = [
+            'company' => $this->companiesModel->getCompanyData($id)
+        ];
+        return view('admin/user/form_edit_user', $data);
+    }
+
+    public function updateUsr($id)
+    {
+        $this->companiesModel->save([
+            'email' => $this->request->getVar('email'),
+            'password' => $this->request->getVar('password')
+        ]);
+        session()->setFlashdata('pesan', 'Data Berhasil Di Update');
+        return redirect()->to('/dashboard/data/user');
+    }
+
     public function delete($id)
     {
         $this->companiesModel->delete($id);
         session()->setFlashdata('pesan', 'Data Berhasil Di Hapus');
-        return redirect()->to('/dashboard/data/company');
+        return redirect()->to('/dashboard');
     }
 
     public function getCourier()

@@ -21,6 +21,7 @@
                         <th>id</th>
                         <th>Email</th>
                         <th>Password</th>
+                        <th>Aksi</th>
                     </tr>
                     <tr>
                         <?php $i = 1; ?>
@@ -28,6 +29,16 @@
                             <td style="vertical-align: middle;"><?= $i; ?></td>
                             <td style="vertical-align: middle;"><?= $cmpusr['email']; ?></td>
                             <td style="vertical-align: middle;"><?= $cmpusr['password']; ?></td>
+                            <td style="vertical-align: middle;">
+
+                                <a href="/dashboard/data/user/edit/<?= $cmpusr["id"]; ?>" class="btn btn-warning">Edit</a>
+
+                                <form action="/dashboard/data/company/data_profile/<?= $cmpusr["id"]; ?>" method="post" class="d-inline">
+                                    <?= csrf_field(); ?>
+                                    <input type="hidden" name="_method" value="DELETE">
+                                    <button type="submit" class="btn btn-danger" onclick="return confirm('apakah anda yakin?');">Delete</button>
+                                </form>
+                            </td>
                     </tr>
                     <?php $i++; ?>
                 <?php endforeach; ?>
