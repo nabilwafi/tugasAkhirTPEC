@@ -54,7 +54,9 @@ $routes->post('/register/company/create', 'Form::addCompany');
 // Pesanan
 $routes->get('/take/services/(:segment)', 'Pesanan::index/$1');
 $routes->post('/take/services/create', 'Pesanan::submitServices');
-$routes->get('/data/pesanan/(:num)', 'Pesanan::dataPesanan/$i');
+$routes->get('/data/pesanan/(:num)', 'Pesanan::dataPesanan/$1');
+
+//upload bukti pembayaran
 
 //login Admin
 $routes->get('/login/admin', 'Form::indexAdmin');
@@ -71,14 +73,28 @@ $routes->get('/dashboard', 'Admin::index');
 //Tampil Company Profile - Super Admin Dashboard
 $routes->get('/dashboard/data/company', 'Admin::getCompany');
 
+//Edit & Update Company Profile - Super Admin Dashboard
+$routes->get('/dashboard/data/company/edit/(:num)', 'Admin::editComp/$1');
+$routes->post('/dashboard/data/company/update/(:num)', 'Admin::updateComp/$1');
+
 //Delete Company Profile - Super Admin Dashboard
 $routes->delete('/dashboard/data/company/data_profile/(:num)', 'Admin::delete/$1');
 
 //Tampil Users - Super Admin Dashboard
 $routes->get('/dashboard/data/users', 'Admin::getCompanyUsr');
 
+//Edit & Update Users - Super Admin Dashboard
+$routes->get('/dashboard/data/user/edit/(:num)', 'Admin::editUsr/$1');
+$routes->post('/dashboard/data/user/update/(:num)', 'Admin::updateUsr/$1');
+
 //Tampil Couriers - Super Admin Dashboard
 $routes->get('/dashboard/data/courier', 'Admin::getCourier');
+
+//Tambah Couriers
+
+//Edit & Update Courier
+
+//Delete Courier
 
 
 // ------------------------------------------------- //

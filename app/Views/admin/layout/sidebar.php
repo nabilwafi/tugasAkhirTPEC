@@ -40,6 +40,12 @@
         </a>
     </li>
     <li class="nav-item">
+        <a class="nav-link" href="/dashboard/data/courier">
+            <i class="fas fa-fw fa-piggy-bank"></i>
+            <span>Kurir</span>
+        </a>
+    </li>
+    <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseThree" aria-expanded="true" aria-controls="collapseThree">
             <i class="fas fa-fw fa-clipboard-list"></i>
             <span>Laporan</span>
@@ -51,12 +57,6 @@
         </div>
     </li>
 
-    <li class="nav-item">
-        <a class="nav-link" href="/dashboard/data/courier">
-            <i class="fas fa-fw fa-piggy-bank"></i>
-            <span>Kurir</span>
-        </a>
-    </li>
     <!-- Divider -->
     <hr class="sidebar-divider d-none d-md-block">
 

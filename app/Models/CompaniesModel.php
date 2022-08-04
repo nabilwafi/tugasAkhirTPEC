@@ -14,7 +14,7 @@ class CompaniesModel extends Model
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
-    protected $allowedFields    = ['nama', 'jenis_devices', 'harga', 'email', 'alamat', 'password'];
+    protected $allowedFields    = ['nama_com', 'jenis_devices', 'harga_com', 'email', 'alamat', 'password'];
 
     // Dates
     protected $useTimestamps = false;
@@ -40,16 +40,17 @@ class CompaniesModel extends Model
     protected $beforeDelete   = [];
     protected $afterDelete    = [];
 
-    public function getCompanyData($val = false, $column = '') {
-        if(is_numeric($val)) {
+    public function getCompanyData($val = false, $column = '')
+    {
+        if (is_numeric($val)) {
             return $this->find($val);
         }
 
-        if(is_string($val) && !$column) {
+        if (is_string($val) && !$column) {
             return $this->where(['email' => $val])->first();
         }
-        
-        if(is_string($val) && $column) {
+
+        if (is_string($val) && $column) {
             return $this->where([$column => $val]);
         }
 

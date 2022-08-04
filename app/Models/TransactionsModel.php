@@ -39,4 +39,27 @@ class TransactionsModel extends Model
     protected $afterFind      = [];
     protected $beforeDelete   = [];
     protected $afterDelete    = [];
+
+    public function getTransactionsData($val = false)
+    {
+        if (is_numeric($val)) {
+            return $this->find($val);
+        }
+
+        if (is_string($val)) {
+            return $this->where(['id' => $val])->first();
+        }
+
+        return $this->findAll();
+    }
+
+    public function join3table($transaksi)
+    {
+        $builder = $this->db->table('transactions');
+        $builder->select('customers.nama_cus, companies.nama_com, companies.harga_com, nama_device, companies.jenis_devices, couriers.nama_kurir, couriers.harga_kurir, keluhan, ppn, total_harga, bukti_pembayaran, status_transaksi, created_at');
+        $builder->join('customers', 'customers.id = transactions.id_customer');
+        $builder->join('companies', 'companies.id = transactions.id_company');
+        $builder->join('couriers', 'couriers.id = transactions.id_courier');
+        return $builder->get()->getResult();
+    }
 }
