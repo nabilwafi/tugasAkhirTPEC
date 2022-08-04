@@ -15,12 +15,11 @@
                 <h4 class="font-weight-bold text-primary">COMPANY PROFILE</h4>
             </div>
              <div class="card-body">
-                <br>Id :              <?= $company['id'] ?> </br>
                 <br>Nama Perusahaan : <?= $company['nama'] ?></br>
                 <br>Alamat :          <?= $company['alamat'] ?></br>
                 <br>Jenis Service :   <?= $company['jenis_devices'] ?></br>
                 <br>Email :           <?= $company['email'] ?></br>
-    <br><a href="/dashboard/company/profile/editprofile/<?= $_SESSION["user_id"] ?>" class="btn btn-primary">Edit</a></br>
+    <br><a href="/dashboard/company/profile/editprofile/<?= $_SESSION["user_id"] ?>" class="btn btn-primary">Ubah</a></br>
   </div>
 </div>
     </div>

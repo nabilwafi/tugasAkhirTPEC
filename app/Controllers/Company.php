@@ -40,10 +40,28 @@ class Company extends BaseController
         return view('company/profile', $data);
     }
 
-    public function editProfile($company)
+    public function editProfile($id)
     {
-      echo 'ISI nya model nya belum nemu buat edit updte nya';
      
+      $data = [
+        'companies' => $this->companiesModel->getCompanyData($id)
+    ];
+    return view('company/editprofile', $data);
+    }
+
+    public function update($id)
+    {
+        $this->companiesModel->save([
+         'id' => $id,
+         'nama' => $this->request->getVar('nama'),
+         'alamat' => $this->request->getVar('alamat'),
+         'jenis_devices' => $this->request->getVar('jenis_devices'),
+         'harga' => $this->request->getVar('harga'),
+         'email' => $this->request->getVar('email'),
+
+        ]);
+    session()->setFlashdata('pesan', 'Updated');
+    return redirect()->to('/dashboard/company/');
     }
 
     public function logout()
