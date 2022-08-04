@@ -31,13 +31,6 @@ class Admin extends BaseController
         return view('admin/home');
     }
 
-    public function getCompanyUsr()
-    {
-        $data = [
-            'compusers' => $this->companiesModel->getCompanyData()
-        ];
-        return view('admin/user/data_company_user', $data);
-    }
 
     public function getCompany()
     {
@@ -56,7 +49,7 @@ class Admin extends BaseController
     }
 
     public function updateComp($id)
-    {  
+    {
         $this->companiesModel->save([
             'id' => $id,
             'nama_com' => $this->request->getVar('nama'),
@@ -67,6 +60,14 @@ class Admin extends BaseController
         ]);
         session()->setFlashdata('pesan', 'Data Berhasil Di Update');
         return redirect()->to('/dashboard/data/company');
+    }
+
+    public function getCompanyUsr()
+    {
+        $data = [
+            'compusers' => $this->companiesModel->getCompanyData()
+        ];
+        return view('admin/user/data_company_user', $data);
     }
 
     public function editUsr($id)
@@ -80,11 +81,12 @@ class Admin extends BaseController
     public function updateUsr($id)
     {
         $this->companiesModel->save([
+            'id' => $id,
             'email' => $this->request->getVar('email'),
             'password' => $this->request->getVar('password')
         ]);
         session()->setFlashdata('pesan', 'Data Berhasil Di Update');
-        return redirect()->to('/dashboard/data/user');
+        return redirect()->to('/dashboard/data/users');
     }
 
     public function delete($id)
@@ -100,5 +102,47 @@ class Admin extends BaseController
             'courier' => $this->couriersModel->getCourierData()
         ];
         return view('admin/courier/data_courier', $data);
+    }
+
+    public function tambahCou()
+    {
+        return view('admin/courier/tambah_courier');
+    }
+
+    public function simpanCou()
+    {
+
+        $this->couriersModel->save([
+            'nama_kurir' => $this->request->getVar('nama'),
+            'harga_kurir' => $this->request->getVar('harga')
+        ]);
+        session()->setFlashdata('pesan', 'Data Berhasil Di Simpan');
+        return redirect()->to('/dashboard/data/courier');
+    }
+
+    public function editCou($id)
+    {
+        $data = [
+            'courier' => $this->couriersModel->getCourierData($id)
+        ];
+        return view('admin/courier/form_edit_kurir', $data);
+    }
+
+    public function updateCou($id)
+    {
+        $this->couriersModel->save([
+            'id' => $id,
+            'nama_kurir' => $this->request->getVar('nama'),
+            'harga_kurir' => $this->request->getVar('harga')
+        ]);
+        session()->setFlashdata('pesan', 'Data Berhasil Di Update');
+        return redirect()->to('/dashboard/data/courier');
+    }
+
+    public function deleteCou($id)
+    {
+        $this->couriersModel->delete($id);
+        session()->setFlashdata('pesan', 'Data Berhasil Di Hapus');
+        return redirect()->to('/dashboard/data/courier');
     }
 }

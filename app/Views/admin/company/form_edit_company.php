@@ -26,11 +26,18 @@
                             </div>
                         </div>
                         <div class="form-group row mb-4">
-                            <label for="jenis_devices" class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Jenis Service</label>
+                            <label for="floatingSelect" class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Jenis Service</label>
                             <div class="col-sm-12 col-md-7">
-                                <input type="text" class="form-control" id="jenis_devices" name="jenis_devices" value="<?= $company['jenis_devices']; ?>">
+                                <select name="jenis_devices" class="form-select form-input col-sm-12 col-md-20" id="floatingSelect" aria-label="Floating label select example">
+                                    <option selected hidden><?= $company['jenis_devices']; ?></option>
+                                    <option <?= old('jenis_devices') == 'handphone' ? "selected"  : null ?> value="handphone">Handphone</option>
+                                    <option <?= old('jenis_devices') == 'laptop' ? "selected"  : null ?> value="laptop">Laptop</option>
+                                    <option <?= old('jenis_devices') == 'pc' ? "selected"  : null ?> value="pc">PC</option>
+                                    <option <?= old('jenis_devices') == 'printer' ? "selected"  : null ?>value="printer">Printer</option>
+                                </select>
                             </div>
                         </div>
+
                         <div class="form-group row mb-4">
                             <label for="harga" class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Harga</label>
                             <div class="col-sm-12 col-md-7">

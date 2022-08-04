@@ -16,7 +16,7 @@
                 <h4 class="font-weight-bold text-primary">KURIR</h4>
             </div>
             <div class="col mt-3">
-                <a href="#" class="btn btn-primary mb-3">Tambah Data Kurir</a>
+                <a href="/dashboard/data/courier/tambah" class="btn btn-primary mb-3">Tambah Data Kurir</a>
             </div>
             <div class="card-body table-responsive">
                 <table class="table table-bordered table-md">
@@ -33,9 +33,9 @@
                             <td style="vertical-align: middle;"><?= $cr['nama_kurir']; ?></td>
                             <td style="vertical-align: middle;"><?= $cr['harga_kurir']; ?></td>
 
-                            <td style="text-align: center;"><a href="/barang/edit/" class="btn btn-warning">Edit</a>
+                            <td style="text-align: center;"><a href="/dashboard/data/courier/edit/<?= $cr["id"]; ?>" class="btn btn-warning">Edit</a>
 
-                                <form action="/barang/" method="post" class="d-inline">
+                                <form action="/dashboard/data/courier/data_courier/<?= $cr["id"]; ?>" method="post" class="d-inline">
                                     <?= csrf_field(); ?>
                                     <input type="hidden" name="_method" value="DELETE">
                                     <button type="submit" class="btn btn-danger" onclick="return confirm('apakah anda yakin?');">Delete</button>

@@ -91,10 +91,19 @@ $routes->post('/dashboard/data/user/update/(:num)', 'Admin::updateUsr/$1');
 $routes->get('/dashboard/data/courier', 'Admin::getCourier');
 
 //Tambah Couriers
+$routes->get('/dashboard/data/courier/tambah', 'Admin::tambahCou');
+$routes->post('/dashboard/data/courier/simpan', 'Admin::simpanCou');
 
 //Edit & Update Courier
+$routes->get('/dashboard/data/courier/edit/(:num)', 'Admin::editCou/$1');
+$routes->post('/dashboard/data/courier/update/(:num)', 'Admin::updateCou/$1');
 
 //Delete Courier
+$routes->delete('/dashboard/data/courier/data_courier/(:num)', 'Admin::deleteCou/$1');
+
+//Tampil Transaksi
+$routes->get('/dashboard/data/transaksi', 'Admin::getTransactions');
+
 
 
 // ------------------------------------------------- //
