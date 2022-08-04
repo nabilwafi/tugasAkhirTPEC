@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.0.2
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost
--- Generation Time: Aug 03, 2022 at 08:08 AM
--- Server version: 10.4.24-MariaDB
--- PHP Version: 8.1.6
+-- Host: 127.0.0.1
+-- Generation Time: Aug 04, 2022 at 02:52 PM
+-- Server version: 10.4.11-MariaDB
+-- PHP Version: 7.4.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -50,9 +50,9 @@ INSERT INTO `admin` (`id`, `name`, `email`, `password`, `roles`) VALUES
 
 CREATE TABLE `companies` (
   `id` int(5) UNSIGNED NOT NULL,
-  `nama` varchar(150) NOT NULL,
+  `nama_com` varchar(150) NOT NULL,
   `jenis_devices` enum('handphone','laptop','pc','printer') NOT NULL,
-  `harga` varchar(150) NOT NULL,
+  `harga_com` varchar(150) NOT NULL,
   `email` varchar(150) NOT NULL,
   `alamat` text NOT NULL,
   `password` varchar(150) NOT NULL,
@@ -63,7 +63,7 @@ CREATE TABLE `companies` (
 -- Dumping data for table `companies`
 --
 
-INSERT INTO `companies` (`id`, `nama`, `jenis_devices`, `harga`, `email`, `alamat`, `password`, `roles`) VALUES
+INSERT INTO `companies` (`id`, `nama_com`, `jenis_devices`, `harga_com`, `email`, `alamat`, `password`, `roles`) VALUES
 (1, 'PT Restu Sehat Selalu', 'handphone', '15000', 'restu@restu', 'Jl. Bandung Pasteur', '12345678', 'company'),
 (2, 'PT Tatanan Dunia Baru', 'laptop', '10000', 'company@company', 'Jl. Bersama Rakyat', '12345678', 'company'),
 (3, 'PT Faris Bersama Warga Baleendah', 'laptop', '20000', 'faris@faris', 'Jl. Pasti Selalu Bisa', '12345678', 'company');
@@ -76,15 +76,15 @@ INSERT INTO `companies` (`id`, `nama`, `jenis_devices`, `harga`, `email`, `alama
 
 CREATE TABLE `couriers` (
   `id` int(5) UNSIGNED NOT NULL,
-  `name` varchar(100) NOT NULL,
-  `harga` varchar(100) NOT NULL
+  `nama_kurir` varchar(100) NOT NULL,
+  `harga_kurir` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `couriers`
 --
 
-INSERT INTO `couriers` (`id`, `name`, `harga`) VALUES
+INSERT INTO `couriers` (`id`, `nama_kurir`, `harga_kurir`) VALUES
 (1, 'JNE', '20000'),
 (2, 'SICEPAT', '11000'),
 (3, 'NINJA', '15000');
@@ -97,7 +97,7 @@ INSERT INTO `couriers` (`id`, `name`, `harga`) VALUES
 
 CREATE TABLE `customers` (
   `id` int(5) UNSIGNED NOT NULL,
-  `name` varchar(100) NOT NULL,
+  `nama_cus` varchar(100) NOT NULL,
   `email` varchar(150) NOT NULL,
   `telp` varchar(120) NOT NULL,
   `alamat` text NOT NULL,
@@ -109,7 +109,7 @@ CREATE TABLE `customers` (
 -- Dumping data for table `customers`
 --
 
-INSERT INTO `customers` (`id`, `name`, `email`, `telp`, `alamat`, `password`, `roles`) VALUES
+INSERT INTO `customers` (`id`, `nama_cus`, `email`, `telp`, `alamat`, `password`, `roles`) VALUES
 (1, 'Muhammad Nabil Wafi', 'user@user', '12345678899', 'Jl. kemana aja', '12345678', 'customer');
 
 -- --------------------------------------------------------
@@ -169,7 +169,8 @@ CREATE TABLE `transactions` (
 --
 
 INSERT INTO `transactions` (`id`, `id_customer`, `id_company`, `id_courier`, `nama_device`, `keluhan`, `ppn`, `total_harga`, `bukti_pembayaran`, `status_transaksi`, `created_at`) VALUES
-(4, 1, 3, 1, 'HP 150 PX', 'rusak layar', '20%', '48000', NULL, 'belum bayar', '2022-08-03 12:54:18');
+(4, 1, 3, 1, 'HP 150 PX', 'rusak layar', '20%', '48000', NULL, 'belum bayar', '2022-08-03 12:54:18'),
+(8, 1, 2, 3, 'hp', 'layar pecah', '10%', '250000', NULL, 'belum bayar', '2022-08-04 12:53:11');
 
 --
 -- Indexes for dumped tables
@@ -252,7 +253,7 @@ ALTER TABLE `migrations`
 -- AUTO_INCREMENT for table `transactions`
 --
 ALTER TABLE `transactions`
-  MODIFY `id` int(5) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(5) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- Constraints for dumped tables
