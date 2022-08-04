@@ -82,7 +82,7 @@ class Pesanan extends BaseController
             'nama_device' => $input['nama_device'],
             'keluhan' => $input['keluhan'],
             'ppn' => $input['ppn'],
-            'total_harga' => ($companyData['harga'] + $courierData['harga']) * 120 / 100,
+            'total_harga' => ($companyData['harga_com'] + $courierData['harga_kurir']) * 120 / 100,
         ]);
 
         return redirect()->to('/data/pesanan/' . $input['id_customer']);

@@ -30,10 +30,10 @@
                         <?php $i = 1; ?>
                         <?php foreach ($company as $cmp) : ?>
                             <td style="vertical-align: middle;"><?= $i; ?></td>
-                            <td style="vertical-align: middle;"><?= $cmp['nama']; ?></td>
+                            <td style="vertical-align: middle;"><?= $cmp['nama_com']; ?></td>
                             <td style="vertical-align: middle;"><?= $cmp['alamat']; ?></td>
                             <td style="vertical-align: middle;"><?= $cmp['jenis_devices']; ?></td>
-                            <td style="vertical-align: middle;"><?= $cmp['harga']; ?></td>
+                            <td style="vertical-align: middle;"><?= $cmp['harga_com']; ?></td>
                             <td style="vertical-align: middle;"><?= $cmp['email']; ?></td>
                             <td style="vertical-align: middle;">
 

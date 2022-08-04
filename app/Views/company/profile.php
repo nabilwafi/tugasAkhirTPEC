@@ -16,7 +16,7 @@
             </div>
             <div class="card-body">
                 <br>Id : <?= $company['id'] ?> </br>
-                <br>Nama Perusahaan : <?= $company['nama'] ?></br>
+                <br>Nama Perusahaan : <?= $company['nama_com'] ?></br>
                 <br>Alamat : <?= $company['alamat'] ?></br>
                 <br>Jenis Service : <?= $company['jenis_devices'] ?></br>
                 <br>Email : <?= $company['email'] ?></br>

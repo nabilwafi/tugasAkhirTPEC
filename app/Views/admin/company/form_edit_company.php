@@ -16,7 +16,7 @@
                         <div class="form-group row mb-4">
                             <label for="nama" class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Nama</label>
                             <div class="col-sm-12 col-md-7">
-                                <input type="text" class="form-control" id="nama" name="nama" value="<?= $company['nama']; ?>">
+                                <input type="text" class="form-control" id="nama" name="nama" value="<?= $company['nama_com']; ?>">
                             </div>
                         </div>
                         <div class="form-group row mb-4">
@@ -34,7 +34,7 @@
                         <div class="form-group row mb-4">
                             <label for="harga" class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Harga</label>
                             <div class="col-sm-12 col-md-7">
-                                <input type="text" class="form-control" id="harga" name="harga" value="<?= $company['harga']; ?>">
+                                <input type="text" class="form-control" id="harga" name="harga" value="<?= $company['harga_com']; ?>">
                             </div>
                         </div>
                         <div class="form-group row mb-4">

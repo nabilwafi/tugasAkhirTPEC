@@ -30,8 +30,8 @@
                         <?php $i = 1; ?>
                         <?php foreach ($courier as $cr) : ?>
                             <td style="vertical-align: middle;"><?= $i; ?></td>
-                            <td style="vertical-align: middle;"><?= $cr['name']; ?></td>
-                            <td style="vertical-align: middle;"><?= $cr['harga']; ?></td>
+                            <td style="vertical-align: middle;"><?= $cr['nama_kurir']; ?></td>
+                            <td style="vertical-align: middle;"><?= $cr['harga_kurir']; ?></td>
 
                             <td style="text-align: center;"><a href="/barang/edit/" class="btn btn-warning">Edit</a>
 
