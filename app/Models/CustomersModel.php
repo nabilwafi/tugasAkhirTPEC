@@ -14,7 +14,7 @@ class CustomersModel extends Model
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
-    protected $allowedFields    = ['name', 'email', 'telp', 'alamat', 'password'];
+    protected $allowedFields    = ['nama_cus', 'email', 'telp', 'alamat', 'password'];
 
     // Dates
     protected $useTimestamps = false;
@@ -40,12 +40,13 @@ class CustomersModel extends Model
     protected $beforeDelete   = [];
     protected $afterDelete    = [];
 
-    public function getCustomersData($val = false) {
-        if(is_numeric($val)) {
+    public function getCustomersData($val = false)
+    {
+        if (is_numeric($val)) {
             return $this->find($val);
         }
 
-        if(is_string($val)) {
+        if (is_string($val)) {
             return $this->where(['email' => $val])->first();
         }
 
