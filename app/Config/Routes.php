@@ -54,7 +54,9 @@ $routes->post('/register/company/create', 'Form::addCompany');
 // Pesanan
 $routes->get('/take/services/(:segment)', 'Pesanan::index/$1');
 $routes->post('/take/services/create', 'Pesanan::submitServices');
-$routes->get('/data/pesanan/(:num)', 'Pesanan::dataPesanan/$i');
+$routes->get('/data/pesanan/(:num)', 'Pesanan::dataPesanan/$1');
+
+//upload bukti pembayaran
 
 //login Admin
 $routes->get('/login/admin', 'Form::indexAdmin');
