@@ -14,7 +14,7 @@ class CompaniesModel extends Model
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
-    protected $allowedFields    = ['nama', 'jenis_devices', 'harga', 'email', 'alamat', 'password'];
+    protected $allowedFields    = ['nama_com', 'jenis_devices', 'harga_com', 'email', 'alamat', 'password'];
 
     // Dates
     protected $useTimestamps = false;

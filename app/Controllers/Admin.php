@@ -56,7 +56,7 @@ class Admin extends BaseController
     }
 
     public function updateComp($id)
-    {
+    {  
         $this->companiesModel->save([
             'id' => $id,
             'nama_com' => $this->request->getVar('nama'),
