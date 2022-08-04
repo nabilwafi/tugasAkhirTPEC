@@ -102,7 +102,7 @@ $routes->post('/dashboard/data/courier/update/(:num)', 'Admin::updateCou/$1');
 $routes->delete('/dashboard/data/courier/data_courier/(:num)', 'Admin::deleteCou/$1');
 
 //Tampil Transaksi
-$routes->get('/dashboard/data/transaksi', 'Admin::getTransactions');
+$routes->get('/dashboard/data/transaksi', 'Admin::getTransaction');
 
 
 

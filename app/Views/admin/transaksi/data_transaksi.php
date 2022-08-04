@@ -1,12 +1,22 @@
-<?= $this->extend('Admin/default') ?>
-
+<?= $this->extend('admin/default') ?>
+<?= $this->section('title') ?>
+<title>User &mdash; SMG</title>>
+<?= $this->endSection() ?>
 <?= $this->section('content') ?>
-<h1 class="text-uppercase" style="text-align: center;"><br>Data Pesanan</h1>
-<div class="section-body">
-    <div class="mx-auto" style="width: 1000px;">
-        <div class="table-responsive">
-            <table class="table table-bordered table-md">
-                <table class="table table-striped">
+<section class="section">
+    <?php if (session()->getFlashdata('pesan')) : ?>
+        <div class="alert alert-success" role="alert">
+            <?= session()->getFlashdata('pesan'); ?>
+        </div>
+    <?php endif; ?>
+    <div class="section-body">
+        <div class="card">
+
+            <div class="card-header">
+                <h4 class="font-weight-bold text-primary">DATA TRANSAKSI</h4>
+            </div>
+            <div class="card-body table-responsive">
+                <table class="table table-bordered table-md">
                     <tr>
                         <th style="text-align: center;">Nama Costumer</th>
                         <th style="text-align: center;">Nama Company</th>
@@ -41,19 +51,11 @@
                             <td class="text-center" style="width:10%">
                                 <a href="#" class="btn btn-warning btn-sm"> <i class="fa fa-pencil-alt"></i></a>
                             </td>
-
                         </tr>
                     <?php endforeach; ?>
                 </table>
+            </div>
         </div>
     </div>
-    </section>
-    <?= $this->endSection() ?>
-
-    <?= $this->section('jumbotron') ?>
-    <h1 class="text-uppercase">Data Pesanan Page</h1>
-    <?= $this->endSection() ?>
-
-    <?= $this->section('head') ?>
-    <title>Sayang Mamah Service - Data Pesanan</title>
-    <?= $this->endSection() ?>
+</section>
+<?= $this->endSection() ?>

@@ -28,7 +28,13 @@ class Admin extends BaseController
 
     public function index()
     {
-        return view('admin/home');
+        $data = [
+            'company' => $this->companiesModel->getCompanyData(),
+            'courier' => $this->couriersModel->getCourierData(),
+            'transaksi' => $this->transactionsModel->join3tableSA()
+        ];
+
+        return view('admin/home', $data);
     }
 
 
@@ -144,5 +150,14 @@ class Admin extends BaseController
         $this->couriersModel->delete($id);
         session()->setFlashdata('pesan', 'Data Berhasil Di Hapus');
         return redirect()->to('/dashboard/data/courier');
+    }
+
+    public function getTransaction()
+    {
+        $data = [
+            'transaksi' => $this->transactionsModel->join3tableSA()
+        ];
+
+        return view('admin/transaksi/data_transaksi', $data);
     }
 }

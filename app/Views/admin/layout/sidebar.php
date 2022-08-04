@@ -52,7 +52,7 @@
         </a>
         <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
-                <a class="collapse-item" href="buttons.html">Laporan Penjualan</a>
+                <a class="collapse-item" href="/dashboard/data/transaksi">Laporan Penjualan</a>
             </div>
         </div>
     </li>
