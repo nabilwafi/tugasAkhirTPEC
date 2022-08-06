@@ -3,9 +3,9 @@
 <?= $this->section('content') ?>
 <h1 class="text-uppercase" style="text-align: center;"><br>Data Pesanan</h1>
 <div class="section-body">
-    <div class="mx-auto" style="width: 1000px;">
+    <div class="mx-auto" style="width: 1200px;">
         <div class="table-responsive">
-            <table class="table table-bordered table-md">
+            <table class="table table-bordered">
                 <table class="table table-striped">
                     <tr>
                         <th style="text-align: center;">Nama Costumer</th>
