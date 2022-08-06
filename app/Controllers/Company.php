@@ -28,6 +28,10 @@ class Company extends BaseController
 
     public function index()
     {
+        if (!isset($_SESSION['user_id']) || $_SESSION['roles'] != 'company') {
+            return redirect()->to('/');
+        }
+
         return view('company/home');
     }
 
@@ -42,26 +46,26 @@ class Company extends BaseController
 
     public function editProfile($id)
     {
-     
-      $data = [
-        'companies' => $this->companiesModel->getCompanyData($id)
-    ];
-    return view('company/editprofile', $data);
+
+        $data = [
+            'companies' => $this->companiesModel->getCompanyData($id)
+        ];
+        return view('company/editprofile', $data);
     }
 
     public function update($id)
     {
         $this->companiesModel->save([
-         'id' => $id,
-         'nama_com' => $this->request->getVar('nama'),
-         'alamat' => $this->request->getVar('alamat'),
-         'jenis_devices' => $this->request->getVar('jenis_devices'),
-         'harga_com' => $this->request->getVar('harga'),
-         'email' => $this->request->getVar('email'),
+            'id' => $id,
+            'nama_com' => $this->request->getVar('nama'),
+            'alamat' => $this->request->getVar('alamat'),
+            'jenis_devices' => $this->request->getVar('jenis_devices'),
+            'harga_com' => $this->request->getVar('harga'),
+            'email' => $this->request->getVar('email'),
 
         ]);
-    session()->setFlashdata('pesan', 'Updated');
-    return redirect()->to('/dashboard/company/');
+        session()->setFlashdata('pesan', 'Updated');
+        return redirect()->to('/dashboard/company/');
     }
 
     public function logout()
