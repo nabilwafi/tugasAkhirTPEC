@@ -105,7 +105,7 @@ class Form extends BaseController
         if ($data) {
             if ($data['email'] == $input['email'] && $data['password'] == $input['password']) {
                 $_SESSION['user_id'] = $data['id'];
-                $_SESSION['name'] = $data['name'];
+                $_SESSION['name'] = $data['nama_cus'];
                 $_SESSION['roles'] = $data['roles'];
                 return redirect()->to('/');
             }
