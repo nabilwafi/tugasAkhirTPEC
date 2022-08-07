@@ -57,6 +57,8 @@ $routes->post('/take/services/create', 'Pesanan::submitServices');
 $routes->get('/data/pesanan/(:num)', 'Pesanan::dataPesanan/$1');
 
 //upload bukti pembayaran
+$routes->get('/upload/bukti-pembayaran/(:num)', 'Pesanan::UploadBuktiPage/$1');
+$routes->post('/upload/bukti-pembayaran/edit/(:num)', 'Pesanan::DoUpload/$1');
 
 //login Admin
 $routes->get('/login/admin', 'Form::indexAdmin');
