@@ -44,7 +44,11 @@
                             <td><?= $trn->keluhan ?></td>
                             <td><?= $trn->ppn ?></td>
                             <td><?= $trn->total_harga ?></td>
-                            <td><?= $trn->bukti_pembayaran ?></td>
+                            <td>
+                                <?php if (isset($trn->bukti_pembayaran)) : ?>
+                                    <img src="/img/<?= $trn->bukti_pembayaran ?>" width="50" height="50" alt="">
+                                <?php endif; ?>
+                            </td>
                             <td><?= $trn->status_transaksi ?></td>
                             <td><?= $trn->created_at ?></td>
 
