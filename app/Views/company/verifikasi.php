@@ -9,17 +9,17 @@
                 <div class="card-header">
                     <h4 class="ont-weight-bold text-primary">FORM EDIT Transaksi</h4>
                 </div>
-                <form action="/dashboard/company/transaksicom/transaksi_com/update/<?= $transaksi['id'] ?>" method="post">
+                <form action="/update/status/<?= $transaksi['id'] ?>" method="post">
                     <?= csrf_field(); ?>
                     <div class="card-body">
 
-                        <div class="form-group row mb-4">
-                            <label for="nama" class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Nama</label>
-                            <div class="col-sm-12 col-md-7">
-                                <input type="text" class="form-control" id="nama" name="nama" value="<?= $transaksi['status_transaksi'] ?>">
-                            </div>
-                        </div>
-                      
+                    <select name="status" class="form-select" aria-label="Default select example" style="margin-left: 400px;">
+                        <option selected hidden>Open this select menu</option>
+                        <option value="pembayaran diterima">Pembayaran Diterima</option>
+                        <option value="device dalam proses">Device Dalam Proses</option>
+                        <option value="device selesai diperbaiki">Device Selesai Diperbaiki</option>
+                        <option value="transaksi selesai">Transaksi Selesai</option>
+                    </select>
 
 
                         <div class="form-group row mb-4">

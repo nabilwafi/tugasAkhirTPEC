@@ -75,23 +75,22 @@ class Company extends BaseController
     }
 
 
-    public function getTransaction()
+    public function getTransaction($user_id)
     {
         $data = [
-            'transaksi' => $this->transactionsModel->join3tableSA()
+            'transaksi' => $this->transactionsModel->jointransaksicom($user_id)
         ];
 
         return view('company/transaksi_com', $data);
     }
 
-    public function editStatus($id)
-    {
+    public function verifikasi($transaksi){
         $data = [
-            'transaksi' => $this->transactionsModel->join3table($id)
+        'transaksi' => $this->transactionsModel->find($transaksi)
         ];
-
-        return view('company/editstatus', $data);
+        return view('company/verifikasi', $data);   
     }
+
 
     public function updateStatus($id)
     {
@@ -100,7 +99,7 @@ class Company extends BaseController
             'status_transaksi' => $this->request->getVar('status'),
         ]);
         session()->setFlashdata('pesan', 'Updated');
-        return redirect()->to('company/transaksicom/transaksi_com');
+        return redirect()->to('/dashboard/company');
     }
 
 

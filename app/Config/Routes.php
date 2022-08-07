@@ -59,6 +59,8 @@ $routes->post('/take/services/create', 'Pesanan::submitServices');
 $routes->get('/data/pesanan/(:num)', 'Pesanan::dataPesanan/$1');
 
 //upload bukti pembayaran
+$routes->get('/upload/bukti-pembayaran/(:num)', 'Pesanan::UploadBuktiPage/$1');
+$routes->post('/upload/bukti-pembayaran/edit/(:num)', 'Pesanan::DoUpload/$1');
 
 //login Admin
 $routes->get('/login/admin', 'Form::indexAdmin');
@@ -84,6 +86,7 @@ $routes->delete('/dashboard/data/company/data_profile/(:num)', 'Admin::delete/$1
 
 //Tampil Users - Super Admin Dashboard
 $routes->get('/dashboard/data/users', 'Admin::getCompanyUsr');
+$routes->get('/dashboard/data/users_cus', 'Admin::getCustomerUsr');
 
 //Edit & Update Users - Super Admin Dashboard
 $routes->get('/dashboard/data/user/edit/(:num)', 'Admin::editUsr/$1');
@@ -126,6 +129,10 @@ $routes->get('/dashboard/company/transaksi_com/(:num)', 'Company::getTransaction
 //company edit status profile dashboard
 $routes->get('/dashboard/company/transaksi_com/editstatus/(:num)', 'Company::editStatus/$1');
 $routes->post('/dashboard/company/transaksicom/transaksi_com/update/(:num)', 'Company::updateStatus/$1');
+
+//verifikasi 
+$routes->get('/verifikasi/transaksi/(:num)', 'Company::verifikasi/$1');
+$routes->post('/update/status/(:num)','Company::updateStatus/$1');
 
 // Logout Company Dashboard
 $routes->get('/company/logout', 'Company::logout');
