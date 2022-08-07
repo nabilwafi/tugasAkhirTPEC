@@ -1,7 +1,7 @@
 <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
     <!-- Sidebar - Brand -->
-    <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+    <a class="sidebar-brand d-flex align-items-center justify-content-center" href="/dashboard/company">
         <div class="sidebar-brand-icon rotate-n-15">
             <i class="fas fa-dragon"></i>
         </div>
@@ -22,14 +22,11 @@
     <hr class="sidebar-divider">
 
     <!-- Heading -->
-    <div class="sidebar-heading">
-        Interface
-    </div>
 
     <!-- Nav Item - Pages Collapse Menu -->
     <li class="nav-item">
         <a class="nav-link" href="/dashboard/company/profile/<?= $_SESSION["user_id"] ?>">
-            <i class="fas fa-fw fa-torii-gate"></i>
+            <i class="fas fa-fw fa-landmark"></i>
             <span>Profile Perusahaan</span>
         </a>
     </li>

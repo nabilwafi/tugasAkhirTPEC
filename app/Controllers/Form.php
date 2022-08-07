@@ -51,7 +51,7 @@ class Form extends BaseController
     public function addUser()
     {
         if (!$this->validate([
-            'name' => 'required|min_length[3]',
+            'nama_cus' => 'required|min_length[3]',
             'email' => 'required|is_unique[customers.email,id,{id}]',
             'alamat' => 'required|min_length[10]',
             'telp' => [
@@ -75,7 +75,7 @@ class Form extends BaseController
         }
 
         $this->customersModel->save([
-            'name' => $this->request->getVar('name'),
+            'nama_cus' => $this->request->getVar('nama_cus'),
             'email' => $this->request->getVar('email'),
             'alamat' => $this->request->getVar('alamat'),
             'telp' => $this->request->getVar('telp'),
