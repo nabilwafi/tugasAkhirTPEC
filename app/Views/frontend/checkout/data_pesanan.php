@@ -3,9 +3,9 @@
 <?= $this->section('content') ?>
 <h1 class="text-uppercase" style="text-align: center;"><br>Data Pesanan</h1>
 <div class="section-body">
-    <div class="mx-auto" style="width: 1000px;">
+    <div class="mx-auto" style="width: 1200px;">
         <div class="table-responsive">
-            <table class="table table-bordered table-md">
+            <table class="table table-bordered">
                 <table class="table table-striped">
                     <tr>
                         <th style="text-align: center;">Nama Costumer</th>
@@ -35,11 +35,19 @@
                             <td><?= $trn->keluhan ?></td>
                             <td><?= $trn->ppn ?></td>
                             <td><?= $trn->total_harga ?></td>
-                            <td><?= $trn->bukti_pembayaran ?></td>
+                            <td>
+                                <?php if(isset($trn->bukti_pembayaran)) : ?>
+                                    <img src="/img/<?= $trn->bukti_pembayaran ?>" width="50" height="50" alt="">
+                                <?php endif; ?>
+                            </td>
                             <td><?= $trn->status_transaksi ?></td>
                             <td><?= $trn->created_at ?></td>
                             <td class="text-center" style="width:10%">
-                                <a href="#" class="btn btn-warning btn-sm"> <i class="fa fa-pencil-alt"></i></a>
+                                <?php if($trn->status_transaksi == 'belum bayar' && !isset($trn->bukti_pembayaran)) : ?>
+                                    <a href="/upload/bukti-pembayaran/<?= $trn->id ?>" class="btn btn-warning btn-sm">
+                                        Upload Bukti Pembayaran
+                                    </a>
+                                <?php endif; ?>
                             </td>
 
                         </tr>

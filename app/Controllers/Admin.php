@@ -76,9 +76,18 @@ class Admin extends BaseController
     public function getCompanyUsr()
     {
         $data = [
-            'compusers' => $this->companiesModel->getCompanyData()
+            'compusers' => $this->companiesModel->getCompanyData(),
+            'customer' => $this->customersModel->getCustomersData()
         ];
         return view('admin/user/data_company_user', $data);
+    }
+
+    public function getCustomerUsr()
+    {
+        $data = [
+            'customer' => $this->customersModel->getCustomersData()
+        ];
+        return view('admin/user/data_customer_user', $data);
     }
 
     public function editUsr($id)

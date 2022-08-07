@@ -1,4 +1,4 @@
-<?= $this->extend('admin/default') ?>
+<?= $this->extend('company/default') ?>
 <?= $this->section('title') ?>
 <title>User &mdash; SMG</title>>
 <?= $this->endSection() ?>
@@ -31,6 +31,7 @@
                         <th style="text-align: center;">Bukti Pembayaran</th>
                         <th style="text-align: center;">Status Transaksi</th>
                         <th style="text-align: center;">Created At</th>
+                        <th style="text-align: center;">Aksi</th>
                     </tr>
                     <?php foreach ($transaksi as $trn) : ?>
                         <tr>
@@ -44,10 +45,18 @@
                             <td><?= $trn->keluhan ?></td>
                             <td><?= $trn->ppn ?></td>
                             <td><?= $trn->total_harga ?></td>
-                            <td><?= $trn->bukti_pembayaran ?></td>
+                            <td> <?php if(isset($trn->bukti_pembayaran)) : ?>
+                                    <img src="/img/<?= $trn->bukti_pembayaran ?>" width="50" height="50" alt="">
+                                <?php endif; ?></td>
                             <td><?= $trn->status_transaksi ?></td>
                             <td><?= $trn->created_at ?></td>
-
+                            <td class="text-center" style="width:10%">
+                            <?php if($trn->status_transaksi != 'belum bayar' && isset($trn->bukti_pembayaran)) : ?>
+                                    <a href="/verifikasi/transaksi/<?= $trn->id ?>" class="btn btn-warning btn-sm">
+                                        Verifikasi
+                                    </a>
+                                <?php endif; ?>
+                            </td>
                         </tr>
                     <?php endforeach; ?>
                 </table>

@@ -97,21 +97,45 @@ class Pesanan extends BaseController
         return view('frontend/checkout/data_pesanan', $data);
     }
 
-    public function upload()
+    public function UploadBuktiPage($transaction)
     {
-        $config['upload_path'] = './uploads/';
-        $config['allowed_types'] = 'gif|jpg|png';
-        $config['max_size']  = '100';
-        $config['max_width']  = '1024';
-        $config['max_height']  = '768';
+        $data = [
+            "transaction" => $this->transactionModel->find($transaction),
+            "validation" => $this->validation
+        ];
 
-        $this->load->library('upload', $config);
+        return view('frontend/checkout/upload_bukti', $data);
+    }
 
-        if (!$this->upload->do_upload()) {
-            $error = array('error' => $this->upload->display_errors());
-        } else {
-            $data = array('upload_data' => $this->upload->data());
-            echo "success";
+    public function doUpload($transaction)
+    {
+
+        if(!$this->validate([
+            'bukti_pembayaran' => [
+                'rules' => 'uploaded[bukti_pembayaran]|is_image[bukti_pembayaran]',
+            ]
+        ])) {
+            $validation = $this->validation;
+            dd($validation->getError('bukti_pembayaran'));
+            return redirect()->back()->withInput();
         }
+
+        $input = [
+            'user_id' => $this->request->getVar('user_id'),
+            'transaction_id' => $this->request->getVar('transaction_id')
+        ];
+        
+        $filesBukti = $this->request->getFile('bukti_pembayaran');
+        $namaBukti = $filesBukti->getRandomName();
+        $filesBukti->move('img', $namaBukti);
+
+        $this->transactionModel->save([
+            'id' => $input['transaction_id'],
+            'bukti_pembayaran' => $namaBukti,
+            'status_transaksi' => 'menunggu verifikasi'
+        ]);
+
+        return redirect()->to('/data/pesanan/'.$input['user_id']);
+
     }
 }

@@ -31,8 +31,14 @@ class Company extends BaseController
         if (!isset($_SESSION['user_id']) || $_SESSION['roles'] != 'company') {
             return redirect()->to('/');
         }
+        $data = [
+            'company' => $this->companiesModel->getCompanyData(),
+            'customer' => $this->customersModel->getCustomersData(),
+            'courier' => $this->couriersModel->getCourierData(),
+            'transaksi' => $this->transactionsModel->join3tableSA()
+        ];
 
-        return view('company/home');
+        return view('company/home', $data);
     }
 
     public function profilePerusahaan($company)
@@ -67,6 +73,36 @@ class Company extends BaseController
         session()->setFlashdata('pesan', 'Updated');
         return redirect()->to('/dashboard/company/');
     }
+
+
+    public function getTransaction($user_id)
+    {
+        $data = [
+            'transaksi' => $this->transactionsModel->jointransaksicom($user_id)
+        ];
+
+        return view('company/transaksi_com', $data);
+    }
+
+    public function verifikasi($transaksi){
+        $data = [
+        'transaksi' => $this->transactionsModel->find($transaksi)
+        ];
+        return view('company/verifikasi', $data);   
+    }
+
+
+    public function updateStatus($id)
+    {
+        $this->transactionsModel->save([
+            'id' => $id,
+            'status_transaksi' => $this->request->getVar('status'),
+        ]);
+        session()->setFlashdata('pesan', 'Updated');
+        return redirect()->to('/dashboard/company');
+    }
+
+
 
     public function logout()
     {
