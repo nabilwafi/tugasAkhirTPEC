@@ -38,7 +38,7 @@
                                 <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
                                     ACCOUNT</div>
                                 <div class="h5 mb-0 font-weight-bold text-gray-800">
-                                    <?= count($company) + count($customer); ?>
+                                    <?= count($customer); ?>
                                 </div>
                             </div>
                             <div class="col-auto">
