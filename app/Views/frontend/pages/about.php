@@ -5,7 +5,7 @@
     <div class="container">
         <div class="d-flex justify-content-center align-items-center about-page-content">
             <div class="about-img-page rounded">
-                <img src="/assets/images/about-img-umbr.jpg" alt="" class="w-100">
+                <img src="/assets/images/about.jpg" alt="" class="w-100">
             </div>
 
             <div class="about-page-information">
@@ -19,28 +19,28 @@
 <div class="sponsored-section section-layout">
     <div class="container">
         <h1 class="text-uppercase text-center">Sponsored</h1>
-    
+
         <div class="row align-items-center sponsored-content">
             <div class="col-2 sponsored-img">
                 <img class="w-100" src="/assets/images/logo_gojek.png" alt="">
             </div>
-    
+
             <div class="col-2 sponsored-img">
                 <img class="w-100" src="/assets/images/logo_grab.png" alt="">
             </div>
-    
+
             <div class="col-2 sponsored-img">
                 <img class="w-100" src="/assets/images/logo_unikom_kuning.png" alt="">
             </div>
-    
+
             <div class="col-2 sponsored-img">
                 <img class="w-100" src="/assets/images/logo_harvard.png" alt="">
             </div>
-    
+
             <div class="col-2 sponsored-img">
                 <img class="w-100" src="/assets/images/logo_oxford.png" alt="">
             </div>
-    
+
             <div class="col-2 sponsored-img">
                 <img class="w-100" src="/assets/images/logo_cambridge.png" alt="">
             </div>
