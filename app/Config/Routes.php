@@ -82,6 +82,7 @@ $routes->delete('/dashboard/data/company/data_profile/(:num)', 'Admin::delete/$1
 
 //Tampil Users - Super Admin Dashboard
 $routes->get('/dashboard/data/users', 'Admin::getCompanyUsr');
+$routes->get('/dashboard/data/users_cus', 'Admin::getCustomerUsr');
 
 //Edit & Update Users - Super Admin Dashboard
 $routes->get('/dashboard/data/user/edit/(:num)', 'Admin::editUsr/$1');
