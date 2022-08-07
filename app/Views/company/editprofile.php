@@ -26,8 +26,8 @@
                             </div>
                         </div>
 
-                         <div class="form-floating mb-4">
-                            <select name="jenis_devices" class="form-select form-input" id="floatingSelect" aria-label="Floating label select example">
+                        <div class="form-group row mb-4">
+                            <select name="jenis_devices" class="form-select form-input" id="floatingSelect" aria-label="Floating label select example" style="margin-left: 450px;">
                             <option selected hidden>Open this select menu</option>
                             <option <?= old('jenis_devices') == 'handphone' ? "selected"  : null ?> value="handphone">Handphone</option>
                             <option <?= old('jenis_devices') == 'laptop' ? "selected"  : null ?> value="laptop">Laptop</option>

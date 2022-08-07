@@ -2,6 +2,8 @@
 
 namespace Config;
 
+use App\Controllers\Company;
+
 // Create a new instance of our RouteCollection class.
 $routes = Services::routes();
 
@@ -117,6 +119,13 @@ $routes->get('/dashboard/company/profile/(:num)', 'Company::profilePerusahaan/$1
 //company edit & update profile dashboard
 $routes->get('/dashboard/company/profile/editprofile/(:num)', 'Company::editProfile/$1');
 $routes->post('/dashboard/company/profile/update/(:num)', 'Company::update/$1');
+
+//company order profile dashboard
+$routes->get('/dashboard/company/transaksi_com/(:num)', 'Company::getTransaction/$1');
+
+//company edit status profile dashboard
+$routes->get('/dashboard/company/transaksi_com/editstatus/(:num)', 'Company::editStatus/$1');
+$routes->post('/dashboard/company/transaksicom/transaksi_com/update/(:num)', 'Company::updateStatus/$1');
 
 // Logout Company Dashboard
 $routes->get('/company/logout', 'Company::logout');

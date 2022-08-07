@@ -15,7 +15,6 @@
                 <h4 class="font-weight-bold text-primary">COMPANY PROFILE</h4>
             </div>
             <div class="card-body">
-                <br>Id : <?= $company['id'] ?> </br>
                 <br>Nama Perusahaan : <?= $company['nama_com'] ?></br>
                 <br>Alamat : <?= $company['alamat'] ?></br>
                 <br>Jenis Service : <?= $company['jenis_devices'] ?></br>

@@ -13,7 +13,7 @@
 
     <!-- Nav Item - Dashboard -->
     <li class="nav-item active">
-        <a class="nav-link" href="/dashboard">
+        <a class="nav-link" href="/dashboard/company">
             <i class="fas fa-fw fa-tachometer-alt"></i>
             <span>Dashboard</span></a>
     </li>
@@ -34,7 +34,7 @@
         </a>
     </li>
     <li class="nav-item">
-        <a class="nav-link" href="/dashboard/data/users">
+        <a class="nav-link" href="/dashboard/company/transaksi_com/<?= $_SESSION["user_id"] ?>">
             <i class="fas fa-fw fa-piggy-bank"></i>
             <span>Orders</span>
         </a>
