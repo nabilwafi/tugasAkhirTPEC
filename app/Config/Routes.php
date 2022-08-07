@@ -45,6 +45,11 @@ $routes->post('/login/to', 'Form::verifyUser');
 $routes->get('/register', 'Form::registerUser');
 $routes->post('/register/create', 'Form::addUser');
 
+//profile user
+$routes->get('/data_cus/user/(:num)', 'Customer::profileCus/$1');
+$routes->get('/edit_profileC/user/(:num)', 'Customer::editCus/$1');
+$routes->post('/edit_profile/user/update/(:num)', 'Customer::update/$1');
+
 // Login & Register Company
 $routes->get('/login/company', 'Form::indexCompany');
 $routes->post('/login/company/to', 'Form::verifyCompany');
