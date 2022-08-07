@@ -51,7 +51,7 @@ class Form extends BaseController
     public function addUser()
     {
         if (!$this->validate([
-            'nama_cus' => 'required|min_length[3]',
+            'name' => 'required|min_length[3]',
             'email' => 'required|is_unique[customers.email,id,{id}]',
             'alamat' => 'required|min_length[10]',
             'telp' => [
@@ -71,11 +71,12 @@ class Form extends BaseController
             ]
         ])) {
             $validation = $this->validation;
+            // dd($this->request->getVar('nama'));
             return redirect()->back()->withInput()->with('validation', $validation);
         }
 
         $this->customersModel->save([
-            'nama_cus' => $this->request->getVar('nama_cus'),
+            'nama_cus' => $this->request->getVar('name'),
             'email' => $this->request->getVar('email'),
             'alamat' => $this->request->getVar('alamat'),
             'telp' => $this->request->getVar('telp'),
@@ -170,9 +171,9 @@ class Form extends BaseController
         }
 
         $this->companiesModel->save([
-            'nama' => $this->request->getVar('name'),
+            'nama_com' => $this->request->getVar('name'),
             'jenis_devices' => $this->request->getVar('jenis_devices'),
-            'harga' => $this->request->getVar('harga'),
+            'harga_com' => $this->request->getVar('harga'),
             'email' => $this->request->getVar('email'),
             'alamat' => $this->request->getVar('alamat'),
             'password' => $this->request->getVar('password')

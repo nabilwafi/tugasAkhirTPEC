@@ -24,8 +24,6 @@ class Pesanan extends BaseController
 
     public function index($device)
     {
-
-
         if (isset($_SESSION['user_id']) && $_SESSION['roles'] == 'customer') {
             if ($device == 'pc' || $device == 'laptop' || $device == 'handphone' || $device == 'printer') {
 
@@ -116,7 +114,6 @@ class Pesanan extends BaseController
             ]
         ])) {
             $validation = $this->validation;
-            dd($validation->getError('bukti_pembayaran'));
             return redirect()->back()->withInput();
         }
 

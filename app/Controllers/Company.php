@@ -31,6 +31,7 @@ class Company extends BaseController
         if (!isset($_SESSION['user_id']) || $_SESSION['roles'] != 'company') {
             return redirect()->to('/');
         }
+
         $data = [
             'company' => $this->companiesModel->getCompanyData(),
             'customer' => $this->customersModel->getCustomersData(),
@@ -43,6 +44,9 @@ class Company extends BaseController
 
     public function profilePerusahaan($company)
     {
+        if (!isset($_SESSION['user_id']) || $_SESSION['roles'] != 'company') {
+            return redirect()->to('/');
+        }
 
         $data = [
             'company' => $this->companiesModel->getCompanyData($company)
@@ -52,6 +56,9 @@ class Company extends BaseController
 
     public function editProfile($id)
     {
+        if (!isset($_SESSION['user_id']) || $_SESSION['roles'] != 'company') {
+            return redirect()->to('/');
+        }
 
         $data = [
             'companies' => $this->companiesModel->getCompanyData($id)
@@ -77,6 +84,10 @@ class Company extends BaseController
 
     public function getTransaction($user_id)
     {
+        if (!isset($_SESSION['user_id']) || $_SESSION['roles'] != 'company') {
+            return redirect()->to('/');
+        }
+
         $data = [
             'transaksi' => $this->transactionsModel->jointransaksicom($user_id)
         ];
@@ -84,16 +95,26 @@ class Company extends BaseController
         return view('company/transaksi_com', $data);
     }
 
-    public function verifikasi($transaksi){
+    public function verifikasi($transaksi)
+    {
+        if (!isset($_SESSION['user_id']) || $_SESSION['roles'] != 'company') {
+            return redirect()->to('/');
+        }
+
         $data = [
         'transaksi' => $this->transactionsModel->find($transaksi)
         ];
+
         return view('company/verifikasi', $data);   
     }
 
 
     public function updateStatus($id)
     {
+        if (!isset($_SESSION['user_id']) || $_SESSION['roles'] != 'company') {
+            return redirect()->to('/');
+        }
+
         $this->transactionsModel->save([
             'id' => $id,
             'status_transaksi' => $this->request->getVar('status'),
@@ -102,7 +123,18 @@ class Company extends BaseController
         return redirect()->to('/dashboard/company');
     }
 
+    public function laporan($company)
+    { 
+        if (!isset($_SESSION['user_id']) || $_SESSION['roles'] != 'company') {
+            return redirect()->to('/');
+        }
 
+        $data = [
+            'transaksi' => $this->transactionsModel->joinTableForCompany($company),
+        ];
+
+        return view('company/laporan', $data);
+    }
 
     public function logout()
     {

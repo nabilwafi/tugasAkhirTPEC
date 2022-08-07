@@ -52,10 +52,10 @@
                             <td><?= $trn->created_at ?></td>
                             <td class="text-center" style="width:10%">
                             <?php if($trn->status_transaksi != 'belum bayar' && isset($trn->bukti_pembayaran)) : ?>
-                                    <a href="/verifikasi/transaksi/<?= $trn->id ?>" class="btn btn-warning btn-sm">
-                                        Verifikasi
-                                    </a>
-                                <?php endif; ?>
+                                <a href="/verifikasi/transaksi/<?= $trn->id ?>" class="btn btn-warning btn-sm">
+                                    Verifikasi
+                                </a>
+                            <?php endif; ?>
                             </td>
                         </tr>
                     <?php endforeach; ?>
