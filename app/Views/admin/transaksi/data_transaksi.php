@@ -31,7 +31,6 @@
                         <th style="text-align: center;">Bukti Pembayaran</th>
                         <th style="text-align: center;">Status Transaksi</th>
                         <th style="text-align: center;">Created At</th>
-                        <th style="text-align: center;">Aksi</th>
                     </tr>
                     <?php foreach ($transaksi as $trn) : ?>
                         <tr>
@@ -48,9 +47,7 @@
                             <td><?= $trn->bukti_pembayaran ?></td>
                             <td><?= $trn->status_transaksi ?></td>
                             <td><?= $trn->created_at ?></td>
-                            <td class="text-center" style="width:10%">
-                                <a href="#" class="btn btn-warning btn-sm"> <i class="fa fa-pencil-alt"></i></a>
-                            </td>
+
                         </tr>
                     <?php endforeach; ?>
                 </table>

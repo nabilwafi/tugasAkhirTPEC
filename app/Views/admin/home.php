@@ -4,11 +4,6 @@
 <?= $this->section('content'); ?>
 <section class="section">
     <div class="section-header">
-        <!-- Page Heading -->
-        <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <h1 class="h3 mb-0 text-gray-800">DASHBOARD SUPER ADMIN</h1>
-        </div>
-
     </div>
 
     <div class="section-body">
@@ -27,7 +22,7 @@
                                 </div>
                             </div>
                             <div class="col-auto">
-                                <i class="fas fa-calendar fa-2x text-gray-300"></i>
+                                <i class="fas fa-landmark fa-2x text-gray-300"></i>
                             </div>
                         </div>
                     </div>
@@ -47,7 +42,7 @@
                                 </div>
                             </div>
                             <div class="col-auto">
-                                <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
+                                <i class="fas fa-user fa-2x text-gray-300"></i>
                             </div>
                         </div>
                     </div>
@@ -76,7 +71,7 @@
                                 </div>
                             </div>
                             <div class="col-auto">
-                                <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
+                                <i class="fas fa-truck fa-2x text-gray-300"></i>
                             </div>
                         </div>
                     </div>
@@ -96,7 +91,7 @@
                                 </div>
                             </div>
                             <div class="col-auto">
-                                <i class="fas fa-comments fa-2x text-gray-300"></i>
+                                <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
                             </div>
                         </div>
                     </div>
