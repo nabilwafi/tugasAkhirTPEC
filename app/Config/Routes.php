@@ -137,7 +137,7 @@ $routes->post('/dashboard/company/transaksicom/transaksi_com/update/(:num)', 'Co
 
 //verifikasi 
 $routes->get('/verifikasi/transaksi/(:num)', 'Company::verifikasi/$1');
-$routes->post('/update/status/(:num)','Company::updateStatus/$1');
+$routes->post('/update/status/(:num)', 'Company::updateStatus/$1');
 
 // Company Laporan
 $routes->get('/laporan/company/(:num)', 'Company::laporan/$1');

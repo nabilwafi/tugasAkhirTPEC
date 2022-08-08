@@ -31,7 +31,7 @@
               <a class="nav-link btn btn-info text-center w-full nav-mobile mb-2 py-2" href="/dashboard/company">Dashboard</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link btn btn-info text-center w-full nav-mobile mb-2 py-2" href="/edit-profile/company/<?= $_SESSION['user_id'] ?>">Edit Profile</a>
+              <a class="nav-link btn btn-info text-center w-full nav-mobile mb-2 py-2" href="/dashboard/company/profile/editprofile/<?= $_SESSION['user_id'] ?>">Edit Profile</a>
             </li>
             <li class="nav-item">
               <a class="nav-link btn btn-info text-center w-full nav-mobile py-2" href="/logout">Logout</a>
@@ -72,7 +72,7 @@
             <h1 class="user-name-title mb-3 mt-2 rounded py-3 px-2 text-center border">Hello, <?= $_SESSION['name'] ?></h1>
             <?php if ($_SESSION['roles'] == 'company') { ?>
               <a class="nav-link btn btn-info text-center w-full mb-2 py-2" href="/dashboard/company">Dashboard</a>
-              <a class="nav-link btn btn-info text-center w-full mb-2 py-2" href="/edit-profile/company/<?= $_SESSION['user_id'] ?>">Edit Profile</a>
+              <a class="nav-link btn btn-info text-center w-full mb-2 py-2" href="/dashboard/company/profile/editprofile/<?= $_SESSION['user_id'] ?>">Edit Profile</a>
               <a class="nav-link btn btn-info text-center w-full py-2" href="/logout">Logout</a>
             <?php } else if ($_SESSION['roles'] == 'customer') { ?>
               <a class="nav-link btn btn-info text-center w-full mb-2 py-2" href="/data/pesanan/<?= $_SESSION['user_id'] ?>">Data Pesanan</a>

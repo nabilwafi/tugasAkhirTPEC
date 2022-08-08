@@ -33,12 +33,8 @@ class Company extends BaseController
         }
 
         $data = [
-            'company' => $this->companiesModel->getCompanyData(),
-            'customer' => $this->customersModel->getCustomersData(),
-            'courier' => $this->couriersModel->getCourierData(),
-            'transaksi' => $this->transactionsModel->join3tableSA()
+            'transaksi' => $this->transactionsModel->where(['id_company' => $_SESSION['user_id']])->findAll()
         ];
-
         return view('company/home', $data);
     }
 
@@ -102,10 +98,10 @@ class Company extends BaseController
         }
 
         $data = [
-        'transaksi' => $this->transactionsModel->find($transaksi)
+            'transaksi' => $this->transactionsModel->find($transaksi)
         ];
 
-        return view('company/verifikasi', $data);   
+        return view('company/verifikasi', $data);
     }
 
 
@@ -124,7 +120,7 @@ class Company extends BaseController
     }
 
     public function laporan($company)
-    { 
+    {
         if (!isset($_SESSION['user_id']) || $_SESSION['roles'] != 'company') {
             return redirect()->to('/');
         }

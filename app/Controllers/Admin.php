@@ -45,6 +45,9 @@ class Admin extends BaseController
 
     public function getCompany()
     {
+        if (!isset($_SESSION['user_id']) || $_SESSION['roles'] != 'superadmin') {
+            return redirect()->to('/');
+        }
         $data = [
             'company' => $this->companiesModel->getCompanyData()
         ];
@@ -75,6 +78,9 @@ class Admin extends BaseController
 
     public function getCompanyUsr()
     {
+        if (!isset($_SESSION['user_id']) || $_SESSION['roles'] != 'superadmin') {
+            return redirect()->to('/');
+        }
         $data = [
             'compusers' => $this->companiesModel->getCompanyData(),
             'customer' => $this->customersModel->getCustomersData()
@@ -84,6 +90,9 @@ class Admin extends BaseController
 
     public function getCustomerUsr()
     {
+        if (!isset($_SESSION['user_id']) || $_SESSION['roles'] != 'superadmin') {
+            return redirect()->to('/');
+        }
         $data = [
             'customer' => $this->customersModel->getCustomersData()
         ];
@@ -118,6 +127,9 @@ class Admin extends BaseController
 
     public function getCourier()
     {
+        if (!isset($_SESSION['user_id']) || $_SESSION['roles'] != 'superadmin') {
+            return redirect()->to('/');
+        }
         $data = [
             'courier' => $this->couriersModel->getCourierData()
         ];
@@ -168,6 +180,9 @@ class Admin extends BaseController
 
     public function getTransaction()
     {
+        if (!isset($_SESSION['user_id']) || $_SESSION['roles'] != 'superadmin') {
+            return redirect()->to('/');
+        }
         $data = [
             'transaksi' => $this->transactionsModel->join3tableSA()
         ];
