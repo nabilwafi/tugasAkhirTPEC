@@ -6,9 +6,7 @@
           <li class="h5 text-uppercase mb-3">Quick Lines</li>
           <li class="mb-2"><a href="/" class="nav-link">Home</a></li>
           <li class="mb-2"><a href="/about" class="nav-link">About</a></li>
-          <li class="mb-2"><a href="/shop" class="nav-link">Shop</a></li>
           <li class="mb-2"><a href="/contact" class="nav-link">Contact</a></li>
-          <li class="mb-2"><a href="/orders" class="nav-link">Orders</a></li>
         </ul>
       </div>
 
@@ -17,8 +15,6 @@
           <li class="h5 text-uppercase mb-3">Extra Links</li>
           <li class="mb-2"><a href="/login" class="nav-link">Login</a></li>
           <li class="mb-2"><a href="/register" class="nav-link">Register</a></li>
-          <li class="mb-2"><a href="/cart" class="nav-link">Cart</a></li>
-          <li class="mb-2"><a href="/orders" class="nav-link">Orders</a></li>
         </ul>
       </div>
 
