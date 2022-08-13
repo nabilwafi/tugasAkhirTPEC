@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.2
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Aug 04, 2022 at 02:52 PM
--- Server version: 10.4.11-MariaDB
--- PHP Version: 7.4.4
+-- Host: localhost
+-- Generation Time: Aug 13, 2022 at 07:01 AM
+-- Server version: 10.4.24-MariaDB
+-- PHP Version: 8.1.6
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -65,8 +65,15 @@ CREATE TABLE `companies` (
 
 INSERT INTO `companies` (`id`, `nama_com`, `jenis_devices`, `harga_com`, `email`, `alamat`, `password`, `roles`) VALUES
 (1, 'PT Restu Sehat Selalu', 'handphone', '15000', 'restu@restu', 'Jl. Bandung Pasteur', '12345678', 'company'),
-(2, 'PT Tatanan Dunia Baru', 'laptop', '10000', 'company@company', 'Jl. Bersama Rakyat', '12345678', 'company'),
-(3, 'PT Faris Bersama Warga Baleendah', 'laptop', '20000', 'faris@faris', 'Jl. Pasti Selalu Bisa', '12345678', 'company');
+(2, 'PT Tatanan Dunia Baru', 'laptop', '100005', 'company@company', 'Jl. Bersama Rakyat 12', '12345678', 'company'),
+(3, 'PT Faris Bersama Warga Baleendah', 'laptop', '20000', 'faris@faris', 'Jl. Pasti Selalu Bisa', '12345678', 'company'),
+(6, 'PT Ashiaap Indonesia', 'printer', '12000', 'ashiap@ashiap', 'Jl. Duar Waduh uawaw', '12345678', 'company'),
+(7, 'PT Mencari Cinta Sejati', 'laptop', '200000', 'mencari@mencari', 'Jl. aduh gatau pusing saya', '123456789', 'company'),
+(8, 'PT Membantu Masyarakat Baleendah', 'printer', '150000', 'faris@company', 'JL. yang dkt sama rumah faris aja', '12345678', 'company'),
+(11, 'PT Bandung Sejati', 'pc', '150000', 'bandung@bandung', 'Jl. Siapakah ini', '12345678', 'company'),
+(12, 'PT Fafifu Waswewos', 'handphone', '200000', 'fafifu@fafifu', 'Jl. Aku tidak tau', '12345678', 'company'),
+(13, 'PT berbanyakan sejati', 'printer', '200000', 'sejati@sejati', 'jl. disitu ada jalan', '12345678', 'company'),
+(14, 'PT tebak', 'pc', '150000', 'tebak@tebak', 'JL. dimanakah ini kita', '12345678', 'company');
 
 -- --------------------------------------------------------
 
@@ -110,7 +117,9 @@ CREATE TABLE `customers` (
 --
 
 INSERT INTO `customers` (`id`, `nama_cus`, `email`, `telp`, `alamat`, `password`, `roles`) VALUES
-(1, 'Muhammad Nabil Wafi', 'user@user', '12345678899', 'Jl. kemana aja', '12345678', 'customer');
+(1, 'Muhammad Nabil Wafi', 'user@user', '12345678899', 'Jl. kemana aja 2', '12345678', 'customer'),
+(2, 'Faris Fadhillah Jatnika Duar Uwaw', 'faris@faris.com', '0812938', 'Jl. Baleendah hayu main yuk', '12345678', 'customer'),
+(3, 'disini kami', 'disini@disini', '12345678899', 'jl.dawdawdaw', '12345678', 'customer');
 
 -- --------------------------------------------------------
 
@@ -170,7 +179,10 @@ CREATE TABLE `transactions` (
 
 INSERT INTO `transactions` (`id`, `id_customer`, `id_company`, `id_courier`, `nama_device`, `keluhan`, `ppn`, `total_harga`, `bukti_pembayaran`, `status_transaksi`, `created_at`) VALUES
 (4, 1, 3, 1, 'HP 150 PX', 'rusak layar', '20%', '48000', NULL, 'belum bayar', '2022-08-03 12:54:18'),
-(8, 1, 2, 3, 'hp', 'layar pecah', '10%', '250000', NULL, 'belum bayar', '2022-08-04 12:53:11');
+(8, 1, 2, 3, 'hp', 'layar pecah', '20%', '250000', '1659813351_a39f899cc8cfb65c6cc4.png', 'transaksi selesai', '2022-08-04 12:53:11'),
+(9, 1, 3, 2, 'Asus RAG 456', 'Rusak Layar', '20%', '37200', NULL, 'belum bayar', '2022-08-06 12:45:57'),
+(10, 2, 6, 1, 'EPSON Kerja Rodi', 'Printer duar ', '20%', '38400', NULL, 'belum bayar', '2022-08-08 00:49:59'),
+(11, 3, 13, 3, 'printer bawah meja', 'meledak', '20%', '258000', '1660362264_e55bcec1347815bc8db6.png', 'transaksi selesai', '2022-08-13 10:43:58');
 
 --
 -- Indexes for dumped tables
@@ -229,7 +241,7 @@ ALTER TABLE `admin`
 -- AUTO_INCREMENT for table `companies`
 --
 ALTER TABLE `companies`
-  MODIFY `id` int(5) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(5) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT for table `couriers`
@@ -241,7 +253,7 @@ ALTER TABLE `couriers`
 -- AUTO_INCREMENT for table `customers`
 --
 ALTER TABLE `customers`
-  MODIFY `id` int(5) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(5) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `migrations`
@@ -253,7 +265,7 @@ ALTER TABLE `migrations`
 -- AUTO_INCREMENT for table `transactions`
 --
 ALTER TABLE `transactions`
-  MODIFY `id` int(5) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(5) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- Constraints for dumped tables
