@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.0.2
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost
--- Generation Time: Aug 13, 2022 at 07:01 AM
--- Server version: 10.4.24-MariaDB
--- PHP Version: 8.1.6
+-- Host: 127.0.0.1
+-- Generation Time: Aug 13, 2022 at 09:12 AM
+-- Server version: 10.4.11-MariaDB
+-- PHP Version: 7.4.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -64,16 +64,16 @@ CREATE TABLE `companies` (
 --
 
 INSERT INTO `companies` (`id`, `nama_com`, `jenis_devices`, `harga_com`, `email`, `alamat`, `password`, `roles`) VALUES
-(1, 'PT Restu Sehat Selalu', 'handphone', '15000', 'restu@restu', 'Jl. Bandung Pasteur', '12345678', 'company'),
-(2, 'PT Tatanan Dunia Baru', 'laptop', '100005', 'company@company', 'Jl. Bersama Rakyat 12', '12345678', 'company'),
-(3, 'PT Faris Bersama Warga Baleendah', 'laptop', '20000', 'faris@faris', 'Jl. Pasti Selalu Bisa', '12345678', 'company'),
-(6, 'PT Ashiaap Indonesia', 'printer', '12000', 'ashiap@ashiap', 'Jl. Duar Waduh uawaw', '12345678', 'company'),
-(7, 'PT Mencari Cinta Sejati', 'laptop', '200000', 'mencari@mencari', 'Jl. aduh gatau pusing saya', '123456789', 'company'),
-(8, 'PT Membantu Masyarakat Baleendah', 'printer', '150000', 'faris@company', 'JL. yang dkt sama rumah faris aja', '12345678', 'company'),
-(11, 'PT Bandung Sejati', 'pc', '150000', 'bandung@bandung', 'Jl. Siapakah ini', '12345678', 'company'),
-(12, 'PT Fafifu Waswewos', 'handphone', '200000', 'fafifu@fafifu', 'Jl. Aku tidak tau', '12345678', 'company'),
-(13, 'PT berbanyakan sejati', 'printer', '200000', 'sejati@sejati', 'jl. disitu ada jalan', '12345678', 'company'),
-(14, 'PT tebak', 'pc', '150000', 'tebak@tebak', 'JL. dimanakah ini kita', '12345678', 'company');
+(1, 'PT Restu Sehat Selalu', 'handphone', '15000', 'restu@restu', 'Jl. Pasteur No 1 Kota Bandung', '12345678', 'company'),
+(2, 'PT Tatanan Dunia Baru', 'laptop', '100005', 'company@company', 'Jl. Bersama Rakyat 12 Kota Bandung', '12345678', 'company'),
+(3, 'PT Faris Bersama Warga Baleendah', 'laptop', '20000', 'faris@faris', 'Jl. Pasti Selalu Bisa No 32 Kota Bogor', '12345678', 'company'),
+(6, 'PT Ashiaap Indonesia', 'printer', '12000', 'ashiap@ashiap', 'Jl. Yonex no 111 Kota Jakarta', '12345678', 'company'),
+(7, 'CS Service Center', 'laptop', '200000', 'mencari@mencari', 'Jl. Kembang Melati No 33 Kota Jakarta', '123456789', 'company'),
+(8, 'PT Masyarakat Komputer', 'printer', '150000', 'faris@company', 'JL. lintang Selatan no 88 Kota Bekasi', '12345678', 'company'),
+(11, 'PT Komputer sejati', 'pc', '150000', 'bandung@bandung', 'Jl. Ligar Dalam No 44 Kota Bandung', '12345678', 'company'),
+(12, 'PT Fafifu Center', 'handphone', '200000', 'fafifu@fafifu', 'Jl. Kereta Dalam no 55 Kota Jakarta', '12345678', 'company'),
+(13, 'Service Printer Center', 'printer', '200000', 'sejati@sejati', 'jl. Sukaluyu no 56B Kota Bekasi', '12345678', 'company'),
+(15, 'PT Tebak Service', 'pc', '150000', 'tebak@tebak', 'JL. Lebak Dalam no 89 Kota Jakarta', '12345678', 'company');
 
 -- --------------------------------------------------------
 
@@ -241,7 +241,7 @@ ALTER TABLE `admin`
 -- AUTO_INCREMENT for table `companies`
 --
 ALTER TABLE `companies`
-  MODIFY `id` int(5) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id` int(5) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT for table `couriers`

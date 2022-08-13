@@ -63,9 +63,8 @@
             <div class="card about-information">
                 <div class="card-body about-card">
                     <h5 class="card-title about-information-title">About Us</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-                        card's content.</p>
-                    <a href="/about" class="btn btn-info text-gray-50">Read More</a>
+                    <p class="card-text">Cari tahu deskripsi setiap company!</p>
+                    <a href="/about" class="btn btn-info text-gray-50">Klik Di sini</a>
                 </div>
             </div>
         </div>
@@ -75,9 +74,8 @@
 <div class="contact-section section-layout">
     <div class="container contact-information">
         <h1 class="h1 contact-title">Have Any Questions?</h1>
-        <p class="contact-description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magni, eligendi aut quis sunt a cumque esse debitis sit earum perspiciatis neque quaerat, magnam quidem nobis maxime. Eligendi, soluta facilis? Tenetur exercitationem vitae minima atque iure!</p>
-
-        <a href="/contact" class="btn btn-info btn-lg px-5">Contact Us</a>
+        <p class="contact-description">Jika mempunyai keluhan, saran atau pertanyaan, dapat menghubungi kami.</p>
+        <a href="/contact" class="btn btn-info btn-lg px-5">Klik Di sini</a>
     </div>
 </div>
 <?= $this->endSection(); ?>

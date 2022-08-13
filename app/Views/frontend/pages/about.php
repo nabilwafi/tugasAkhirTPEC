@@ -5,12 +5,41 @@
     <div class="container">
         <div class="d-flex justify-content-center align-items-center about-page-content">
             <div class="about-img-page rounded">
-                <img src="/assets/images/about.jpg" alt="" class="w-100">
             </div>
 
             <div class="about-page-information">
-                <h1 class="about-page-title">About Us</h1>
-                <p class="about-page-description">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Iste nesciunt fugit incidunt quaerat libero sint vel magnam eveniet esse vitae modi dignissimos deserunt inventore laborum autem delectus tempora impedit, fugiat quidem maxime quas dolorem ex sunt et! Veniam minus cumque quasi architecto perspiciatis quas reprehenderit commodi consequatur, saepe eius, delectus, nam dolorem? Quod sunt eum inventore, ipsa aliquam nam iure, eaque cupiditate distinctio suscipit rem placeat. Qui eligendi obcaecati corrupti quam pariatur voluptas earum at explicabo rem ea nobis perspiciatis ratione nesciunt odio beatae, nemo facilis incidunt! Totam, officia accusantium ad itaque dicta, repellendus.</p>
+                <h1 class="about-page-title">About All Company</h1>
+                <p class="about-page-description">
+                <p> 1. PT Restu Sehat Selalu<br>
+                    PT Restu Sehat Selalu merupakan sebuah company yang bergerak di bidang jasa service <b>Handphone</b> yang beralamat di Jl. Pasteur No 1 Kota Bandung.
+
+                <p> 2. PT Tatanan Dunia Baru<br>
+                    PT Tatanan Dunia Baru merupakan sebuah company yang bergerak di bidang jasa service <b>Laptop</b> yang beralamat di Jl. Bersama Rakyat 12 Kota Bandung.
+
+                <p> 3. PT Faris Bersama Warga Baleendah<br>
+                    PT Faris Bersama Warga Baleendah merupakan sebuah company yang bergerak di bidang jasa service <b>Laptop</b> yang beralamat di Jl. Pasti Selalu Bisa No 32 Kota Bogor.
+
+                <p> 4. PT Ashiaap Indonesia<br>
+                    PT Ashiaap Indonesia merupakan sebuah company yang bergerak di bidang jasa service <b>Printer</b> yang beralamat di Jl. Yonex No 111 Kota Jakarta.
+
+                <p> 5. CS Service Center<br>
+                    CS Service Center merupakan sebuah company yang bergerak di bidang jasa service <b>Laptop</b> yang beralamat di Jl. Kembang Melati No 33 Kota Jakarta.
+
+                <p>6. PT Masyarakat Komputer<br>
+                    PT Masyarakat Komputer merupakan sebuah company yang bergerak di bidang jasa service <b>Printer</b> yang beralamat di Jl. Lintang Selatan No 88 Kota Bekasi.
+
+                <p>7. PT Komputer Sejati<br>
+                    PT Komputer Sejati merupakan sebuah company yang bergerak di bidang jasa service <b>PC</b> yang beralamat di Jl. Ligar Dalam No 44 Kota Bandung.
+
+                <p> 8. PT Fafifu Center<br>
+                    PT Fafifu Center merupakan sebuah company yang bergerak di bidang jasa service <b>Handphone</b> yang beralamat di Jl. Kereta Dalam No 44 Kota Jakarta.
+
+                <p>9. Service Printer Center<br>
+                    Service Printer Center merupakan sebuah company yang bergerak di bidang jasa service <b>Printer</b> yang beralamat di Jl. Sukaluyu No 56B Kota Bekasi.
+
+                <p>10. PT Tebak Service<br>
+                    PT Tebak Service merupakan sebuah company yang bergerak di bidang jasa service <b>PC</b> yang beralamat di Jl. Lebak Dalam No 89 Kota Jakarta.
+
             </div>
         </div>
     </div>
